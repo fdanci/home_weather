@@ -10,17 +10,17 @@ def index(request):
 
 def cosna(request):
     """Show weather data about 'Cosna'."""
-
-    # Todo: Read 5 days forecast from weather API.
-
-    forecast_list = []
-
-    forecast = Forecast()
-
-    context = {
-        "forecast_list": forecast_list
-    }
-
+    try:
+        forecast = Forecast()
+    except Exception as ex:
+        context = {
+            "error_message": ex
+        }
+    else:
+        context = {
+            "forecast_list": forecast.forecast_list,
+            "error_message": None
+        }
     return render(request, 'weather/cosna.html', context)
 
 
