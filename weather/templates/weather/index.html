@@ -2,23 +2,26 @@
 
 {% block page_header %}
 {% if not error_message %}
+{% load static %}
 <div class="jumbotron">
     <h1 class="display-4">Vremea</h1>
-    <p class="lead">Aici vor aparea news feed...</p>
+    <p class="lead">Cea mai ridicată și cea mai scăzută temperatură în următoarele {{ forecast_length }} zile</p>
     <div class="row">
         <div class="col-md-6">
-            <div class="card mx-auto" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Highest">
+            <div class="card mx-auto" style="width: 20rem;">
+                <img class="card-img-top" src="{% static 'images/warm.png' %}" alt="Highest">
                 <div class="card-body">
-                    <p class="card-text">&#8451;</p>
+                    <h5 class="card-title">{{ max_temperature_date }}</h5>
+                    <p class="card-text">{{ max_temperature }} &#8451;</p>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card mx-auto" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Lowest">
+            <div class="card mx-auto" style="width: 20rem;">
+                <img class="card-img-top" src="{% static 'images/cold.png' %}" alt="Lowest">
                 <div class="card-body">
-                    <p class="card-text">&#8451;</p>
+                    <h5 class="card-title">{{ min_temperature_date }}</h5>
+                    <p class="card-text">{{ min_temperature }} &#8451;</p>
                 </div>
             </div>
         </div>

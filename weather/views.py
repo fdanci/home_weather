@@ -14,9 +14,12 @@ def index(request):
         }
     else:
         context = {
-            "max_temperature": forecast.max_temperature,
-            "min_temperature": forecast.min_temperature,
+            "max_temperature": forecast.max_temperature[0],
+            "max_temperature_date": forecast.max_temperature[1],
+            "min_temperature": forecast.min_temperature[0],
+            "min_temperature_date": forecast.min_temperature[1],
             "error_message": None,
+            "forecast_length": len(forecast.forecast_list),
             'version': version
         }
     return render(request, 'weather/index.html', context)

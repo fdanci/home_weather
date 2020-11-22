@@ -8,9 +8,11 @@ class Forecast:
 
     def __init__(self, location, test=False):
         """Initialize the forecast list, read from weather api."""
+
+        # This is a flag used to determine whether real data or fake data needed.
         self.__test = test
 
-        if not self.__test:
+        if not self.__test:  # Real data.
             if location == 'cosna':
                 self.__json_data = json.loads(Source1.forecast_5days('280811').text)
             elif location == 'vatra_dornei':
@@ -18,7 +20,7 @@ class Forecast:
 
             self.__headline = self.__json_data['Headline']['Text']
             self.__headline_category = self.__json_data['Headline']['Category']
-        else:
+        else:  # Fake data.
             self.__json_data = {'DailyForecasts': [1, 2, 3, 4, 5]}
             self.__headline = 'Headline'
             self.__headline_category = 'Headline category'
@@ -26,19 +28,20 @@ class Forecast:
         # This list contains all forecast items.
         self.__forecast_list = []
 
+        # These two will be of type tuple '(temperature<float>, date<str>)'.
         self.__max_temperature = None
         self.__min_temperature = None
 
         # Parse each forecast json, create forecast items, add them to the list.
         for forecast in self.__json_data['DailyForecasts']:
-            if not self.__test:
+            if not self.__test:  # Real data.
                 forecast_item: ForecastItem = self.__extract_forecast(forecast)
             else:
                 forecast_item: ForecastItem = self.__create_test_data()
             self.__forecast_list.append(forecast_item)
 
             # Determine highest & lowest temperatures.
-            if not self.__test:
+            if not self.__test:  # Real data.
                 if not self.__max_temperature and not self.__min_temperature:
                     self.__max_temperature = (float(forecast_item.max_temperature), forecast_item.date)
                     self.__min_temperature = (float(forecast_item.min_temperature), forecast_item.date)
@@ -47,7 +50,7 @@ class Forecast:
                         self.__max_temperature = (float(forecast_item.max_temperature), forecast_item.date)
                     if float(forecast_item.min_temperature) < self.__min_temperature[0]:
                         self.__min_temperature = (float(forecast_item.min_temperature), forecast_item.date)
-            else:
+            else:  # Fake data.
                 self.__max_temperature = (float(5.7), forecast_item.date)
                 self.__min_temperature = (float(-5.7), forecast_item.date)
 
@@ -122,12 +125,7 @@ class Forecast:
 
     @staticmethod
     def __create_test_data():
-        """
-        Create forecast item from given json data.
-
-        :param forecast: Forecast data json
-        :return: Forecast item
-        """
+        """This method creates and returns a fake forecast item."""
         date = '12-04-2032'
 
         min_temperature = '-0.6'
