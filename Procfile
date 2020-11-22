@@ -1,0 +1,1 @@
+web: gunicorn home_weather.wsgi --log-file -
