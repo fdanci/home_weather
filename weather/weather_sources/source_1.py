@@ -18,6 +18,10 @@ class Source1:
 
         response = requests.request("GET", url)
 
+        # Raise exception if no more requests for today!
+        if response.status_code == 503:
+            raise Exception('A fost depășit numărul de cereri pe ziua de azi')
+
         return response
 
     @staticmethod

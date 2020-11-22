@@ -22,7 +22,7 @@ class Forecast:
             self.__headline_category = self.__json_data['Headline']['Category']
         else:  # Fake data.
             self.__json_data = {'DailyForecasts': [1, 2, 3, 4, 5]}
-            self.__headline = 'Headline'
+            self.__headline = 'O săptămână destul de călduță'
             self.__headline_category = 'Headline category'
 
         # This list contains all forecast items.

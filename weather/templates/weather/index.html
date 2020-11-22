@@ -1,10 +1,10 @@
 {% extends "weather/base.html" %}
 
-{% block page_header %}
+<!--{% block page_header %}-->
 {% if not error_message %}
 {% load static %}
 <div class="jumbotron">
-    <h1 class="display-4">Vremea</h1>
+    <h1 class="display-4">{{ headline }}</h1>
     <p class="lead">Cea mai ridicată și cea mai scăzută temperatură în următoarele {{ forecast_length }} zile</p>
     <div class="row">
         <div class="col-md-6">
@@ -33,4 +33,5 @@
 <div>
     <p style="color: grey; font-size:13px;">version: {{version}}</p>
 </div>
-{% endblock page_header %}
+<hr>
+<!--{% endblock page_header %}-->

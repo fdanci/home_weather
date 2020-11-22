@@ -6,7 +6,7 @@ def index(request):
     """Show home page."""
     version = '0.1'
     try:
-        forecast = Forecast('cosna', test=True)
+        forecast: Forecast = Forecast('cosna', test=True)
     except Exception as ex:
         context = {
             "error_message": ex,
@@ -20,6 +20,7 @@ def index(request):
             "min_temperature_date": forecast.min_temperature[1],
             "error_message": None,
             "forecast_length": len(forecast.forecast_list),
+            "headline": forecast.headline,
             'version': version
         }
     return render(request, 'weather/index.html', context)

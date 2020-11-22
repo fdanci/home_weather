@@ -1,81 +1,78 @@
 {% extends "weather/base.html" %}
 
-{% block page_header %}
-{% if not error_message %}
-<h1 class="display-5">Cosna</h1>
-{% else %}
-<p>{{ error_message }}...</p>
-{% endif %}
-{% endblock page_header %}
-
 {% block content %}
 {% if not error_message %}
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
-    <ol class="carousel-indicators">
-        {% for forecast in forecast_list %}
-        <li data-target="#carouselExampleIndicators" class="{% if not forloop.counter0 %}active{% endif %}"></li>
-        {% endfor %}
-    </ol>
-    <div class="carousel-inner">
-        {% for forecast in forecast_list %}
-        {% if forloop.first %}
-        <div class="carousel-item active">
-            {% else %}
-            <div class="carousel-item">
-                {% endif %}
-                {% if forecast %}
-                <div class="d-block h-50 w-100" style="background-color: grey;">
-                    <h5 style="text-align:center;">Temperatură</h5>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6" style="text-align: center;">
-                                <p>Max: {{ forecast.max_temperature }} &#8451;</p>
-                                <p>Resimțită: {{ forecast.max_real_feel_temperature }} &#8451;</p>
+<div class="jumbotron">
+    <h1 class="display-4">Vatra Dornei</h1>
+    <p class="lead">Cea mai ridicată și cea mai scăzută temperatură în următoarele {{ forecast_length }} zile</p>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+        <ol class="carousel-indicators">
+            {% for forecast in forecast_list %}
+            <li data-target="#carouselExampleIndicators" class="{% if not forloop.counter0 %}active{% endif %}"></li>
+            {% endfor %}
+        </ol>
+        <div class="carousel-inner border border-dark">
+            {% for forecast in forecast_list %}
+            {% if forloop.first %}
+            <div class="carousel-item active">
+                {% else %}
+                <div class="carousel-item">
+                    {% endif %}
+                    {% if forecast %}
+                    <div class="d-block h-50 w-100 bg-info">
+                        <h5 style="text-align:center;">Temperatură</h5>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6" style="text-align: center;">
+                                    <p>Max: {{ forecast.max_temperature }} &#8451;</p>
+                                    <p>Resimțită: {{ forecast.max_real_feel_temperature }} &#8451;</p>
+                                </div>
+                                <div class="col-md-6" style="text-align: center;">
+                                    <p>Min: {{ forecast.min_temperature }} &#8451;</p>
+                                    <p>Resimțită: {{ forecast.min_real_feel_temperature }} &#8451;</p>
+                                </div>
                             </div>
-                            <div class="col-md-6" style="text-align: center;">
-                                <p>Min: {{ forecast.min_temperature }} &#8451;</p>
-                                <p>Resimțită: {{ forecast.min_real_feel_temperature }} &#8451;</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-6" style="text-align: center;">
-                                <h5>Ziua</h5>
-                                <p>{{ forecast.long_phrase_day }}.</p>
-                                <p>Șanse furtună: {{ forecast.thunderstorm_probability_day }} &#37;</p>
-                                <p>Șanse de ploaie: {{ forecast.rain_probability_day }} &#37;</p>
-                                <p>Șanse de ninsoare: {{ forecast.snow_probability_day }} &#37;</p>
-                                <p>Șanse de gheață: {{ forecast.ice_probability_day }} &#37;</p>
-                            </div>
-                            <div class="col-md-6" style="text-align: center;">
-                                <h5>Noaptea</h5>
-                                <p>{{ forecast.long_phrase_night }}.</p>
-                                <p>Șanse furtună: {{ forecast.thunderstorm_probability_night }} &#37;</p>
-                                <p>Șanse de ploaie: {{ forecast.rain_probability_night }} &#37;</p>
-                                <p>Șanse de ninsoare: {{ forecast.snow_probability_night }} &#37;</p>
-                                <p>Șanse de gheață: {{ forecast.ice_probability_night }} &#37;</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6" style="text-align: center;">
+                                    <h5>Ziua</h5>
+                                    <p>{{ forecast.long_phrase_day }}.</p>
+                                    <p>Șanse furtună: {{ forecast.thunderstorm_probability_day }} &#37;</p>
+                                    <p>Șanse de ploaie: {{ forecast.rain_probability_day }} &#37;</p>
+                                    <p>Șanse de ninsoare: {{ forecast.snow_probability_day }} &#37;</p>
+                                    <p>Șanse de gheață: {{ forecast.ice_probability_day }} &#37;</p>
+                                </div>
+                                <div class="col-md-6" style="text-align: center;">
+                                    <h5>Noaptea</h5>
+                                    <p>{{ forecast.long_phrase_night }}.</p>
+                                    <p>Șanse furtună: {{ forecast.thunderstorm_probability_night }} &#37;</p>
+                                    <p>Șanse de ploaie: {{ forecast.rain_probability_night }} &#37;</p>
+                                    <p>Șanse de ninsoare: {{ forecast.snow_probability_night }} &#37;</p>
+                                    <p>Șanse de gheață: {{ forecast.ice_probability_night }} &#37;</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    {% endif %}
+                    <div class="carousel-caption">
+                        <h3>{{ forecast.date }}</h3>
+                        <p>{{ forecast.long_phrase_day }} ziua, {{ forecast.long_phrase_night }} noaptea.</p>
+                    </div>
                 </div>
-                {% endif %}
-                <div class="carousel-caption">
-                    <h3>{{ forecast.date }}</h3>
-                    <p>Vatra Dornei</p>
-                </div>
+                {% endfor %}
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-            {% endfor %}
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
     </div>
 </div>
+
 <hr>
 {% endif %}
 {% endblock content %}
