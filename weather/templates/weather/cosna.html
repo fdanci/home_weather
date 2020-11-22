@@ -4,7 +4,7 @@
 {% if not error_message %}
 <h1 class="display-5">Cosna</h1>
 {% else %}
-<p>A fost depășit numărul de cereri pe ziua de azi...</p>
+<p>{{ error_message }}...</p>
 {% endif %}
 {% endblock page_header %}
 

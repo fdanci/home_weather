@@ -1,9 +1,33 @@
 {% extends "weather/base.html" %}
 
 {% block page_header %}
+{% if not error_message %}
 <div class="jumbotron">
     <h1 class="display-4">Vremea</h1>
     <p class="lead">Aici vor aparea news feed...</p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mx-auto" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Highest">
+                <div class="card-body">
+                    <p class="card-text">&#8451;</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mx-auto" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Lowest">
+                <div class="card-body">
+                    <p class="card-text">&#8451;</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<p>{{ error_message }}...</p>
+{% endif %}
+<div>
     <p style="color: grey; font-size:13px;">version: {{version}}</p>
 </div>
 {% endblock page_header %}
