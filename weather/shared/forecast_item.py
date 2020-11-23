@@ -1,4 +1,4 @@
-from datetime import datetime
+from weather.shared.date_util import DateUtil
 
 
 class ForecastItem:
@@ -32,10 +32,7 @@ class ForecastItem:
                  phrase_night,
 
                  has_precipitations_day,
-                 has_precipitations_night,
-
-                 today=False,
-                 tomorrow=False
+                 has_precipitations_night
                  ):
         self.__date = date
 
@@ -64,12 +61,9 @@ class ForecastItem:
         self.__has_precipitations_day = has_precipitations_day
         self.__has_precipitations_night = has_precipitations_night
 
-        self.__today = today
-        self.__tomorrow = tomorrow
-
     @property
     def date(self):
-        current_day = datetime.now().day
+        current_day = DateUtil.get_current_day()
         forecast_day = int((self.__date.split('-'))[2])
 
         # If today or tomorrow or the day after tomorrow return word instead of date.
@@ -153,16 +147,6 @@ class ForecastItem:
     def has_precipitations_night(self):
         return self.__has_precipitations_night
 
-    @property
-    def today(self):
-        """Return true if forecast represents current day."""
-        return self.__today
-
-    @property
-    def tomorrow(self):
-        """Return true if forecast represents tomorrow."""
-        return self.__tomorrow
-
     def __str__(self):
         """Return all forecast data neatly formatted."""
         return f"\nDate: {self.date}" \
@@ -183,6 +167,4 @@ class ForecastItem:
                f"\nPhrase day: {self.phrase_day}" \
                f"\nPhrase night: {self.phrase_night}" \
                f"\nHas precipitations during day: {self.__has_precipitations_day}" \
-               f"\nHas precipitations during night: {self.__has_precipitations_night}" \
-               f"\nToday: {self.__today}" \
-               f"\nTomorrow: {self.__tomorrow}"
+               f"\nHas precipitations during night: {self.__has_precipitations_night}"

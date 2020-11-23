@@ -4,7 +4,7 @@
 {% if not error_message %}
 <div class="jumbotron">
     <h1 class="display-4">Coșna</h1>
-    <p class="lead">Cea mai ridicată și cea mai scăzută temperatură în următoarele {{ forecast_length }} zile</p>
+    <p class="lead">Prognoza meteo zilnică pentru următoarele {{ forecast_length }} zile</p>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
         <ol class="carousel-indicators">
             {% for forecast in forecast_list %}
