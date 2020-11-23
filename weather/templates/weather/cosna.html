@@ -24,11 +24,11 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6" style="text-align: center;">
-                                    <p>Max: {{ forecast.max_temperature }} &#8451;</p>
+                                    <p>Maximă: {{ forecast.max_temperature }} &#8451;</p>
                                     <p>Resimțită: {{ forecast.max_real_feel_temperature }} &#8451;</p>
                                 </div>
                                 <div class="col-md-6" style="text-align: center;">
-                                    <p>Min: {{ forecast.min_temperature }} &#8451;</p>
+                                    <p>Minimă: {{ forecast.min_temperature }} &#8451;</p>
                                     <p>Resimțită: {{ forecast.min_real_feel_temperature }} &#8451;</p>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                             <div class="row">
                                 <div class="col-md-6" style="text-align: center;">
                                     <h5>Ziua</h5>
-                                    <p>{{ forecast.long_phrase_day }}.</p>
+                                    <p>{{ forecast.phrase_day }}.</p>
                                     <p>Șanse furtună: {{ forecast.thunderstorm_probability_day }} &#37;</p>
                                     <p>Șanse de ploaie: {{ forecast.rain_probability_day }} &#37;</p>
                                     <p>Șanse de ninsoare: {{ forecast.snow_probability_day }} &#37;</p>
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="col-md-6" style="text-align: center;">
                                     <h5>Noaptea</h5>
-                                    <p>{{ forecast.long_phrase_night }}.</p>
+                                    <p>{{ forecast.phrase_night }}.</p>
                                     <p>Șanse furtună: {{ forecast.thunderstorm_probability_night }} &#37;</p>
                                     <p>Șanse de ploaie: {{ forecast.rain_probability_night }} &#37;</p>
                                     <p>Șanse de ninsoare: {{ forecast.snow_probability_night }} &#37;</p>
@@ -56,7 +56,7 @@
                     {% endif %}
                     <div class="carousel-caption">
                         <h3>{{ forecast.date }}</h3>
-                        <p>Coșna</p>
+                        <p>{{ forecast.long_phrase_day }} ziua. {{ forecast.long_phrase_night }} noaptea.</p>
                     </div>
                 </div>
                 {% endfor %}

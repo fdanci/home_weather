@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 class ForecastItem:
     """Forecast model for a single day.
 
@@ -66,6 +69,16 @@ class ForecastItem:
 
     @property
     def date(self):
+        current_day = datetime.now().day
+        forecast_day = int((self.__date.split('-'))[2])
+
+        # If today or tomorrow or the day after tomorrow return word instead of date.
+        if current_day == forecast_day:
+            return 'Astăzi'
+        elif current_day + 1 == forecast_day:
+            return 'Mâine'
+        elif current_day + 2 == forecast_day:
+            return 'Poimâine'
         return self.__date
 
     @property

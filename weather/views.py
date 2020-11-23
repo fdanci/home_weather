@@ -4,9 +4,9 @@ from weather.shared.forecast import Forecast
 
 def index(request):
     """Show home page."""
-    version = '0.1'
+    version = '1.0'
     try:
-        forecast: Forecast = Forecast('cosna', test=True)
+        forecast: Forecast = Forecast('cosna')
     except Exception as ex:
         context = {
             "error_message": ex,
@@ -29,7 +29,7 @@ def index(request):
 def cosna(request):
     """Show weather data about 'Cosna'."""
     try:
-        forecast = Forecast('cosna', test=True)
+        forecast = Forecast('cosna')
     except Exception as ex:
         context = {
             "error_message": ex
@@ -45,7 +45,7 @@ def cosna(request):
 def vatra_dornei(request):
     """Show weather data about 'Vatra Dornei'."""
     try:
-        forecast = Forecast('vatra_dornei', test=True)
+        forecast = Forecast('vatra_dornei')
     except Exception as ex:
         context = {
             "error_message": ex

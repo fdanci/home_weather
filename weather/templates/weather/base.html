@@ -24,19 +24,21 @@ shrink-to-fit=no" name="viewport">
                 <a class="nav-link" href="{% url 'weather:cosna' %}">
                     Cosna</a></li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'weather:vatra_dornei' %}" >
+                <a class="nav-link" href="{% url 'weather:vatra_dornei' %}">
                     Vatra Dornei</a></li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                 <a class="nav-link">{% now "Y-m-d" %}</a>
+                <a class="nav-link">Data de azi &nbsp; {% now "Y-m-d" %}</a>
             </li>
         </ul>
     </div>
 </nav>
 
 <main class="container" role="main">
-<!--    <div class="pb-2 mb-2 border-bottom">-->
-<!--        {% block page_header %}{% endblock page_header %}-->
-<!--    </div>-->
+    <!--    <div class="pb-2 mb-2 border-bottom">-->
+    <!--        {% block page_header %}{% endblock page_header %}-->
+    <!--    </div>-->
     <div>
         {% block content %}{% endblock content %}
     </div>
