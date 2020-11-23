@@ -30,7 +30,7 @@ def index(request):
                 date=DateUtil.get_date_today(),
                 location='cosna'
             )
-            Forecast_DB.objects.add(today_forecast)
+            today_forecast.save()
 
     # In case of an error, add the error message to context, to be displayed in UI.
     except Exception as err:
@@ -76,7 +76,7 @@ def cosna(request):
                 date=DateUtil.get_date_today(),
                 location='cosna'
             )
-            Forecast_DB.objects.add(today_forecast)
+            today_forecast.save()
 
     # In case of an error, add the error message to context, to be displayed in UI.
     except Exception as err:
@@ -99,7 +99,8 @@ def vatra_dornei(request):
     """Show weather data about 'Vatra Dornei'."""
     try:
         # Retrieve the forecast for today, 'cosna' location.
-        today_forecasts: Forecast_DB = Forecast_DB.objects.filter(location='vatra_dornei', date=DateUtil.get_date_today())
+        today_forecasts: Forecast_DB = Forecast_DB.objects.filter(
+            location='vatra_dornei', date=DateUtil.get_date_today())
 
         # If forecast data exists, create 'Forecast' object from it.
         if today_forecasts:
@@ -116,7 +117,7 @@ def vatra_dornei(request):
                 date=DateUtil.get_date_today(),
                 location='vatra_dornei'
             )
-            Forecast_DB.objects.add(today_forecast)
+            today_forecast.save()
 
     # In case of an error, add the error message to context, to be displayed in UI.
     except Exception as err:
