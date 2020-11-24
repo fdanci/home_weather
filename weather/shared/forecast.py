@@ -14,12 +14,10 @@ class Forecast:
 
         # Create json from already existent response, stored in DB.
         if raw_data:
-            logger.info("Inside 'Forecast if raw_response'")
             json_data = json.loads(raw_data)
 
         # Request the weather API for a new response.
         else:
-            logger.info("Inside 'Forecast else raw_response'")
             if location == 'cosna':
                 self.__raw_data = Source1.forecast_5days('280811').text  # The response as it is received from the API
                 json_data = json.loads(self.__raw_data)

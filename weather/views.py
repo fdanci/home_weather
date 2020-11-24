@@ -17,13 +17,11 @@ def index(request):
 
         # If forecast data exists, create 'Forecast' object from it.
         if today_forecasts:
-            logger.info("Inside 'if today_forecasts'")
             today_forecast = today_forecasts[0]
             forecast: Forecast = Forecast('cosna', raw_data=today_forecast.forecast)
 
         # Otherwise send request to the API, and then create 'Forecast' object.
         else:
-            logger.info("Inside 'else today_forecasts'")
             forecast: Forecast = Forecast('cosna')
             today_forecast = Forecast_DB.objects.create(
                 forecast=forecast.raw_data,
@@ -63,13 +61,11 @@ def cosna(request):
 
         # If forecast data exists, create 'Forecast' object from it.
         if today_forecasts:
-            logger.info("Inside 'if today_forecasts'")
             today_forecast = today_forecasts[0]
             forecast: Forecast = Forecast('cosna', raw_data=today_forecast.forecast)
 
         # Otherwise send request to the API, and then create 'Forecast' object.
         else:
-            logger.info("Inside 'else today_forecasts'")
             forecast: Forecast = Forecast('cosna')
             today_forecast = Forecast_DB.objects.create(
                 forecast=forecast.raw_data,
@@ -98,19 +94,17 @@ def cosna(request):
 def vatra_dornei(request):
     """Show weather data about 'Vatra Dornei'."""
     try:
-        # Retrieve the forecast for today, 'cosna' location.
+        # Retrieve the forecast for today, 'vatra_dornei' location.
         today_forecasts: Forecast_DB = Forecast_DB.objects.filter(
             location='vatra_dornei', date=DateUtil.get_date_today())
 
         # If forecast data exists, create 'Forecast' object from it.
         if today_forecasts:
-            logger.info("Inside 'if today_forecasts'")
             today_forecast = today_forecasts[0]
             forecast: Forecast = Forecast('cosna', raw_data=today_forecast.forecast)
 
         # Otherwise send request to the API, and then create 'Forecast' object.
         else:
-            logger.info("Inside 'else today_forecasts'")
             forecast: Forecast = Forecast('vatra_dornei')
             today_forecast = Forecast_DB.objects.create(
                 forecast=forecast.raw_data,

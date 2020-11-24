@@ -3,12 +3,12 @@
 <!--{% block page_header %}-->
 {% if not error_message %}
 {% load static %}
-<div class="jumbotron">
+<div class="jumbotron" style="background-color:white;">
     <h1 class="display-4">{{ headline }}</h1>
     <p class="lead">Minima și maxima în următoarele {{ forecast_length }} zile</p>
     <div class="row">
         <div class="col-md-6">
-            <div class="card mx-auto" style="width: 20rem;">
+            <div class="card mx-auto" style="width: 20rem; background-color:white;">
                 <img class="card-img-top" src="{% static 'images/warm.png' %}" alt="Highest">
                 <div class="card-body">
                     <h5 class="card-title">{{ max_temperature_date }}</h5>
@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card mx-auto" style="width: 20rem;">
+            <div class="card mx-auto" style="width: 20rem; background-color:white;">
                 <img class="card-img-top" src="{% static 'images/cold.png' %}" alt="Lowest">
                 <div class="card-body">
                     <h5 class="card-title">{{ min_temperature_date }}</h5>
