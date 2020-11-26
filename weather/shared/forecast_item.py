@@ -93,34 +93,50 @@ class ForecastItem:
 
     @property
     def thunderstorm_probability_day(self):
+        if self.__thunderstorm_probability_day == 0:
+            return None
         return self.__thunderstorm_probability_day
 
     @property
     def rain_probability_day(self):
+        if self.__rain_probability_day == 0:
+            return None
         return self.__rain_probability_day
 
     @property
     def snow_probability_day(self):
+        if self.__snow_probability_day == 0:
+            return None
         return self.__snow_probability_day
 
     @property
     def ice_probability_day(self):
+        if self.__ice_probability_day == 0:
+            return None
         return self.__ice_probability_day
 
     @property
     def thunderstorm_probability_night(self):
+        if self.__thunderstorm_probability_night == 0:
+            return None
         return self.__thunderstorm_probability_night
 
     @property
     def rain_probability_night(self):
+        if self.__rain_probability_night == 0:
+            return None
         return self.__rain_probability_night
 
     @property
     def snow_probability_night(self):
+        if self.__snow_probability_night == 0:
+            return None
         return self.__snow_probability_night
 
     @property
     def ice_probability_night(self):
+        if self.__ice_probability_night == 0:
+            return None
         return self.__ice_probability_night
 
     @property
@@ -132,11 +148,11 @@ class ForecastItem:
         return self.__long_phrase_night
 
     @property
-    def phrase_day(self):
+    def icon_day(self):
         return self.__phrase_day
 
     @property
-    def phrase_night(self):
+    def icon_night(self):
         return self.__phrase_night
 
     @property
@@ -164,7 +180,7 @@ class ForecastItem:
                f"\nIce chance night: {self.__ice_probability_night}" \
                f"\nLong phrase day: {self.long_phrase_day}" \
                f"\nLong phrase Night: {self.long_phrase_night}" \
-               f"\nPhrase day: {self.phrase_day}" \
-               f"\nPhrase night: {self.phrase_night}" \
+               f"\nPhrase day: {self.icon_day}" \
+               f"\nPhrase night: {self.icon_night}" \
                f"\nHas precipitations during day: {self.__has_precipitations_day}" \
                f"\nHas precipitations during night: {self.__has_precipitations_night}"
