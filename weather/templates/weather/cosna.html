@@ -12,7 +12,7 @@
             style="background-color: black;"></li>
         {% endfor %}
     </ol>
-    <div class="carousel-inner rounded">
+    <div class="carousel-inner">
         {% for forecast in forecast_list %}
         {% if forloop.first %}
         <div class="carousel-item active">
@@ -20,13 +20,13 @@
             <div class="carousel-item">
                 {% endif %}
                 {% if forecast %}
-                <div class="d-block h-1000 w-100 border border-secondary rounded" style="background-color:white;">
+                <div class="d-block h-1000 w-100 border border-secondary" style="background-color:white;">
                     <div class="container">
                         <div class="row" style="margin-top:20px;">
                             <div class="col-md-6" style="text-align: center;">
                                 <div class="row justify-content-center">
                                     <div class="col">
-                                        <h5 style="text-align:center; margin-top:5px;">Maximă</h5>
+                                        <h5 style="text-align:center; margin-top:5px; color:Tomato;">Maximă</h5>
                                         <h5 class="card-title" style="margin-top:11px;">
                                             {{ forecast.max_temperature }} &#8451;</h5>
                                         <p class="card-text">
@@ -37,7 +37,7 @@
                              <div class="col-md-6" style="text-align: center;">
                                 <div class="row justify-content-center">
                                     <div class="col">
-                                        <h5 style="text-align:center; margin-top:5px;">Minimă</h5>
+                                        <h5 style="text-align:center; margin-top:5px; color:DodgerBlue;">Minimă</h5>
                                         <h5 class="card-title" style="margin-top:11px;">
                                             {{ forecast.min_temperature }} &#8451;</h5>
                                         <p class="card-text">
@@ -142,5 +142,59 @@
 </div>
 
 <hr>
+
+<a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Afișează mai mult...
+</a>
+
+<div class="collapse" id="collapseExample">
+
+  <p class="lead">Prognoza meteo pentru următoarele 12 ore</p>
+
+    <ol>
+    {% for forecast in forecast_hour_list %}
+    <div class="card"
+         style="width: 24rem; background-color:white; margin-bottom:20px;">
+        <div class="card-body border border-secondary">
+
+            <div class="row">
+                <div class="col my-auto">
+                    <p class="card-text" style="font-size: medium;">Ora {{ forecast.hour }}</p>
+                    <p style="font-size: small; margin-top:-10px;">{{ forecast.icon }}</p>
+                </div>
+                <div class="col my-auto">
+                    {% if forecast.icon == 'Parţial însorit' or forecast.icon == 'Predominant însorit' or forecast.icon == 'Predominant senin' %}
+                    <img src="{% static 'images/sunny.png' %}" style="width:50;" alt="sunny">
+                    {% elif forecast.icon == 'Nori sporadici' %}
+                    <img src="{% static 'images/partly_clouds_day.png' %}" style="width:50;" alt="partly sunny">
+                    {% elif forecast.icon == 'Fulguieli' or forecast.icon == 'Ninsoare' %}
+                    <img src="{% static 'images/snow_day.png' %}" style="width:50;" alt="snow">
+                    {% elif forecast.icon == 'Predominant noros' or forecast.icon == 'Noros' or forecast.icon == 'Parţial noros' %}
+                    <img src="{% static 'images/mostly_clouds.png' %}" style="width:50;" alt="clouds">
+                    {% endif %}
+                </div>
+                <div class="col my-auto">
+                    <p class="card-text" style="font-size: large;">{{ forecast.temperature }} &#8451;</p>
+                    <p class="card-text" style="font-size: 12; margin-top:-20px; color:grey;">Resimțită {{ forecast.real_feel_temperature }}</p>
+                </div>
+            </div>
+
+            {% if forecast.rain_probability %}
+            <p>Șanse de ploaie: {{ forecast.rain_probability }} &#37;</p>
+            {% endif %}
+
+            {% if forecast.snow_probability %}
+            <p>Șanse de ninsoare: {{ forecast.snow_probability }} &#37;</p>
+            {% endif %}
+
+            {% if forecast.ice_probability %}
+            <p>Șanse de gheață: {{ forecast.ice_probability }} &#37;</p>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    </ol>
+</div>
+
 {% endif %}
 {% endblock content %}

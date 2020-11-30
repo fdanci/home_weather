@@ -61,5 +61,5 @@ class Source1:
         # Raise exception if no more requests for today!
         if response.status_code == 503:
             raise Exception('A fost depășit numărul de cereri pe ziua de azi')
-        print(response.text)
+
         return response

@@ -2,7 +2,7 @@ from datetime import datetime
 
 
 class DateUtil:
-    """Utility class used to get different required date information."""
+    """Utility class used to get different required date information & formats."""
 
     @staticmethod
     def get_current_day() -> int:
@@ -21,5 +21,10 @@ class DateUtil:
 
     @staticmethod
     def get_date_today() -> str:
-        """Return string date in 'yyyy-mm-dd' format."""
+        """Return string date in 'yyyy-mm-dd' (2020-11-30) format."""
         return datetime.now().strftime("%Y-%m-%d")
+
+    @staticmethod
+    def get_date_hour_today() -> str:
+        """Return string date in 'yyyy-mm-ddTH' (2020-11-30T16) format."""
+        return datetime.now().strftime("%Y-%m-%dT%H")
