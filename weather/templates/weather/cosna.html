@@ -22,14 +22,12 @@
                 {% if forecast %}
                 <div class="d-block h-1000 w-100 border border-secondary rounded" style="background-color:white;">
                     <div class="container">
-                        <h5 style="text-align:center; margin-top:5px;">Maximă/Minimă</h5>
+<!--                        <h5 style="text-align:center; margin-top:5px;">Maximă/Minimă</h5>-->
                         <div class="row" style="margin-top:20px;">
                             <div class="col-md-6" style="text-align: center;">
                                 <div class="row justify-content-center">
-                                    <div class="col-md-1">
-                                        <img src="{% static 'images/max_temperature.png' %}" alt="Highest">
-                                    </div>
-                                    <div class="col-md-4">
+                                    <div class="col">
+                                        <h5 style="text-align:center; margin-top:5px;">Maximă</h5>
                                         <h5 class="card-title" style="margin-top:11px;">
                                             {{ forecast.max_temperature }} &#8451;</h5>
                                         <p class="card-text">
@@ -37,18 +35,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6" style="text-align: center;">
-                                        <div class="row justify-content-center">
-                                            <div class="col-md-1">
-                                                <img src="{% static 'images/min_temperature.png' %}" alt="Highest">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <h5 class="card-title" style="margin-top:11px;">
-                                                    {{ forecast.min_temperature }} &#8451;</h5>
-                                                <p class="card-text">
-                                                    Resimțită {{ forecast.min_real_feel_temperature }} &#8451;</p>
-                                            </div>
-                                        </div>
+                             <div class="col-md-6" style="text-align: center;">
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <h5 style="text-align:center; margin-top:5px;">Minimă</h5>
+                                        <h5 class="card-title" style="margin-top:11px;">
+                                            {{ forecast.min_temperature }} &#8451;</h5>
+                                        <p class="card-text">
+                                            Resimțită {{ forecast.min_real_feel_temperature }} &#8451;</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
