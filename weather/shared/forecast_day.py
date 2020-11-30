@@ -1,7 +1,7 @@
 from weather.shared.date_util import DateUtil
 
 
-class ForecastItem:
+class ForecastDay:
     """Forecast model for a single day.
 
     All members are not intended to be modified afterwards so are private."""

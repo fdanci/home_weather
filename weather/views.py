@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from weather.shared.forecast import Forecast
+from weather.shared.forecast_5days import Forecast5days
 from weather.models import Forecast as Forecast_DB
 from weather.shared.date_util import DateUtil
 import logging
@@ -18,11 +18,11 @@ def index(request):
         # If forecast data exists, create 'Forecast' object from it.
         if today_forecasts:
             today_forecast = today_forecasts[0]
-            forecast: Forecast = Forecast('cosna', raw_data=today_forecast.forecast)
+            forecast: Forecast5days = Forecast5days('cosna', raw_data=today_forecast.forecast)
 
         # Otherwise send request to the API, and then create 'Forecast' object.
         else:
-            forecast: Forecast = Forecast('cosna')
+            forecast: Forecast5days = Forecast5days('cosna')
             today_forecast = Forecast_DB.objects.create(
                 forecast=forecast.raw_data,
                 date=DateUtil.get_date_today(),
@@ -62,11 +62,11 @@ def cosna(request):
         # If forecast data exists, create 'Forecast' object from it.
         if today_forecasts:
             today_forecast = today_forecasts[0]
-            forecast: Forecast = Forecast('cosna', raw_data=today_forecast.forecast)
+            forecast: Forecast5days = Forecast5days('cosna', raw_data=today_forecast.forecast)
 
         # Otherwise send request to the API, and then create 'Forecast' object.
         else:
-            forecast: Forecast = Forecast('cosna')
+            forecast: Forecast5days = Forecast5days('cosna')
             today_forecast = Forecast_DB.objects.create(
                 forecast=forecast.raw_data,
                 date=DateUtil.get_date_today(),
@@ -101,11 +101,11 @@ def vatra_dornei(request):
         # If forecast data exists, create 'Forecast' object from it.
         if today_forecasts:
             today_forecast = today_forecasts[0]
-            forecast: Forecast = Forecast('cosna', raw_data=today_forecast.forecast)
+            forecast: Forecast5days = Forecast5days('cosna', raw_data=today_forecast.forecast)
 
         # Otherwise send request to the API, and then create 'Forecast' object.
         else:
-            forecast: Forecast = Forecast('vatra_dornei')
+            forecast: Forecast5days = Forecast5days('vatra_dornei')
             today_forecast = Forecast_DB.objects.create(
                 forecast=forecast.raw_data,
                 date=DateUtil.get_date_today(),

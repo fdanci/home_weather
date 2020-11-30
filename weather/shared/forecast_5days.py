@@ -1,4 +1,4 @@
-from .forecast_item import ForecastItem
+from .forecast_day import ForecastDay
 from weather.weather_sources.source_1 import Source1
 import json
 import logging
@@ -6,11 +6,11 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class Forecast:
-    """List of forecast items."""
+class Forecast5days:
+    """List of forecast day items. It contains data 5 days worth."""
 
     def __init__(self, location, raw_data=None):
-        """Initialize the forecast list, read from weather api."""
+        """Initialize the forecast list, read from weather api, or load data from DB if present."""
 
         # Create json from already existent response, stored in DB.
         if raw_data:
@@ -36,7 +36,7 @@ class Forecast:
 
         # Parse each forecast json, create forecast items, add them to the list.
         for forecast in json_data['DailyForecasts']:
-            forecast_item: ForecastItem = self.__extract_forecast(forecast)
+            forecast_item: ForecastDay = self.__extract_forecast(forecast)
 
             self.__forecast_list.append(forecast_item)
 
@@ -96,7 +96,7 @@ class Forecast:
         has_precipitations_day = forecast['Day']['HasPrecipitation']
         has_precipitations_night = forecast['Night']['HasPrecipitation']
 
-        forecast_item = ForecastItem(
+        forecast_item = ForecastDay(
             date=date[:10],
             min_temperature=min_temperature,
             max_temperature=max_temperature,
