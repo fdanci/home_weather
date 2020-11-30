@@ -21,7 +21,6 @@
                 {% endif %}
                 {% if forecast %}
                 <div class="d-block h-1000 w-100 border border-secondary rounded" style="background-color:white;">
-                    <h5 style="text-align:center; margin-top:5px;">Maximă/Minimă</h5>
                     <div class="container">
                         <div class="row" style="margin-top:20px;">
                             <div class="col-md-6" style="text-align: center;">
@@ -56,14 +55,14 @@
                                      style="width: 18rem; background-color:white;">
                                     <h5 class="card-header" style="background-color:#EBEBEB;">Ziua</h5>
                                     <div class="card-body">
-                                        {% if forecast.icon_day == 'Parţial însorit' %}
-                                        <img src="{% static 'images/sunny.png' %}" style="width:50;" alt="snow_day">
+                                        {% if forecast.icon_day == 'Parţial însorit' or forecast.icon_day == 'Predominant însorit' %}
+                                        <img src="{% static 'images/sunny.png' %}" style="width:50;" alt="sunny">
                                         {% elif forecast.icon_day == 'Nori sporadici' %}
-                                        <img src="{% static 'images/partly_clouds_day.png' %}" style="width:50;" alt="snow_day">
+                                        <img src="{% static 'images/partly_clouds_day.png' %}" style="width:50;" alt="partly sunny">
                                         {% elif forecast.icon_day == 'Fulguieli' or forecast.icon_day == 'Ninsoare' %}
-                                        <img src="{% static 'images/snow_day.png' %}" style="width:50;" alt="snow_day">
+                                        <img src="{% static 'images/snow_day.png' %}" style="width:50;" alt="snow">
                                         {% elif forecast.icon_day == 'Predominant noros' or forecast.icon_day == 'Noros' %}
-                                        <img src="{% static 'images/mostly_clouds.png' %}" style="width:50;" alt="snow_day">
+                                        <img src="{% static 'images/mostly_clouds.png' %}" style="width:50;" alt="clouds">
                                         {% endif %}
                                         <p>{{ forecast.icon_day }}</p>
 
@@ -90,12 +89,14 @@
                                      style="width: 18rem; background-color:white; margin-bottom:20px;">
                                     <h5 class="card-header" style="background-color:#EBEBEB;">Noaptea</h5>
                                     <div class="card-body">
-                                        {% if forecast.icon_night == 'Nori sporadici' %}
-                                        <img src="{% static 'images/partly_clouds_night.png' %}" style="width:50;" alt="snow_day">
+                                        {% if forecast.icon_night == 'Nori sporadici' or forecast.icon_night == 'Parţial noros' %}
+                                        <img src="{% static 'images/partly_clouds_night.png' %}" style="width:50;" alt="partly clouds">
                                         {% elif forecast.icon_night == 'Fulguieli' or forecast.icon_night == 'Ninsoare' %}
-                                        <img src="{% static 'images/snow_night.png' %}" style="width:50;" alt="snow_day">
+                                        <img src="{% static 'images/snow_night.png' %}" style="width:50;" alt="snow">
                                         {% elif forecast.icon_night == 'Predominant noros' or forecast.icon_night == 'Noros' or forecast.icon_night == 'Mohorât' %}
-                                        <img src="{% static 'images/mostly_clouds.png' %}" style="width:50;" alt="snow_day">
+                                        <img src="{% static 'images/mostly_clouds.png' %}" style="width:50;" alt="clouds">
+                                        {% elif forecast.icon_night == 'Predominant senin' or forecast.icon_night == 'Senin' %}
+                                        <img src="{% static 'images/clear_sky_night.png' %}" style="width:50;" alt="clear sky">
                                         {% endif %}
                                         <p>{{ forecast.icon_night }}</p>
 
