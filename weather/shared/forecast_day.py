@@ -169,7 +169,7 @@ class ForecastDay:
                f"\nMin temperature: {self.min_temperature}" \
                f"\nMax temperature: {self.__max_temperature}" \
                f"\nMin felt temperature: {self.min_real_feel_temperature}" \
-               f"\nMax feld temperature: {self.max_real_feel_temperature}" \
+               f"\nMax felt temperature: {self.max_real_feel_temperature}" \
                f"\nThunderstorm chance day: {self.__thunderstorm_probability_day}" \
                f"\nRain chance day: {self.__rain_probability_day}" \
                f"\nSnow chance day: {self.__snow_probability_day}" \
