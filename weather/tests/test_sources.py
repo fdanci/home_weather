@@ -24,3 +24,13 @@ class TestSource1(TestCase):
         """Does this method, Vatra Dornei location, return status code 200?"""
         response = Source1.forecast_5days('vatra_dornei')
         self.assertEquals(response.status_code, 200)
+
+    def test_forecast_12hours_vd(self):
+        """Does this method, Vatra Dornei location, return status code 200?"""
+        response = Source1.forecast_12hours('vatra_dornei')
+        self.assertEquals(response.status_code, 200)
+
+    def test_forecast_12hours_cosna(self):
+        """Does this method, Cosna location, return status code 200?"""
+        response = Source1.forecast_12hours('cosna')
+        self.assertEquals(response.status_code, 200)

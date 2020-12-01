@@ -67,7 +67,7 @@ class ForecastHour:
         return self.__ice_probability
 
     @property
-    def icon(self):
+    def phrase(self):
         return self.__phrase
 
     @property

@@ -9,6 +9,9 @@ class ForecastDay:
     def __init__(self,
                  date,
 
+                 sunrise,
+                 sunset,
+
                  min_temperature,
                  max_temperature,
 
@@ -28,6 +31,9 @@ class ForecastDay:
                  long_phrase_day,
                  long_phrase_night,
 
+                 icon_day,
+                 icon_night,
+
                  phrase_day,
                  phrase_night,
 
@@ -35,6 +41,9 @@ class ForecastDay:
                  has_precipitations_night
                  ):
         self.__date = date
+
+        self.__sunrise = sunrise
+        self.__sunset = sunset
 
         self.__min_temperature = min_temperature
         self.__max_temperature = max_temperature
@@ -55,6 +64,9 @@ class ForecastDay:
         self.__long_phrase_day = long_phrase_day
         self.__long_phrase_night = long_phrase_night
 
+        self.__icon_day = icon_day
+        self.__icon_night = icon_night
+
         self.__phrase_day = phrase_day
         self.__phrase_night = phrase_night
 
@@ -74,6 +86,14 @@ class ForecastDay:
         elif current_day + 2 == forecast_day:
             return 'Poimâine'
         return self.__date
+
+    @property
+    def sunrise(self):
+        return self.__sunrise[11:16]
+
+    @property
+    def sunset(self):
+        return self.__sunset[11:16]
 
     @property
     def min_temperature(self):
@@ -148,11 +168,19 @@ class ForecastDay:
         return self.__long_phrase_night
 
     @property
-    def icon_day(self):
+    def icon_day(self) -> str:
+        return self.__icon_day
+
+    @property
+    def icon_night(self) -> str:
+        return self.__icon_night
+
+    @property
+    def phrase_day(self):
         return self.__phrase_day
 
     @property
-    def icon_night(self):
+    def phrase_night(self):
         return self.__phrase_night
 
     @property
@@ -166,10 +194,12 @@ class ForecastDay:
     def __str__(self):
         """Return all forecast data neatly formatted."""
         return f"\nDate: {self.date}" \
-               f"\nMin temperature: {self.min_temperature}" \
+               f"\nSunrise: {self.sunrise}" \
+               f"\nSunset: {self.sunset}" \
+               f"\nMin temperature: {self.__min_temperature}" \
                f"\nMax temperature: {self.__max_temperature}" \
-               f"\nMin felt temperature: {self.min_real_feel_temperature}" \
-               f"\nMax felt temperature: {self.max_real_feel_temperature}" \
+               f"\nMin felt temperature: {self.__min_real_feel_temperature}" \
+               f"\nMax felt temperature: {self.__max_real_feel_temperature}" \
                f"\nThunderstorm chance day: {self.__thunderstorm_probability_day}" \
                f"\nRain chance day: {self.__rain_probability_day}" \
                f"\nSnow chance day: {self.__snow_probability_day}" \
@@ -178,9 +208,11 @@ class ForecastDay:
                f"\nRain chance night: {self.__rain_probability_night}" \
                f"\nSnow chance night: {self.__snow_probability_night}" \
                f"\nIce chance night: {self.__ice_probability_night}" \
-               f"\nLong phrase day: {self.long_phrase_day}" \
-               f"\nLong phrase Night: {self.long_phrase_night}" \
-               f"\nPhrase day: {self.icon_day}" \
-               f"\nPhrase night: {self.icon_night}" \
+               f"\nLong phrase day: {self.__long_phrase_day}" \
+               f"\nLong phrase Night: {self.__long_phrase_night}" \
+               f"\nIcon day: {self.__icon_day}" \
+               f"\nIcon night: {self.__icon_night}" \
+               f"\nPhrase day: {self.__phrase_day}" \
+               f"\nPhrase night: {self.__phrase_night}" \
                f"\nHas precipitations during day: {self.__has_precipitations_day}" \
                f"\nHas precipitations during night: {self.__has_precipitations_night}"

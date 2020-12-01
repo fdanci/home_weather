@@ -71,6 +71,9 @@ class Forecast5days:
         """
         date = forecast['Date']
 
+        sunrise = forecast['Sun']['Rise']
+        sunset = forecast['Sun']['Set']
+
         min_temperature = forecast['Temperature']['Minimum']['Value']
         max_temperature = forecast['Temperature']['Maximum']['Value']
 
@@ -90,6 +93,9 @@ class Forecast5days:
         long_phrase_day = forecast['Day']['LongPhrase']
         long_phrase_night = forecast['Night']['LongPhrase']
 
+        icon_day = forecast['Day']['Icon']
+        icon_night = forecast['Night']['Icon']
+
         phrase_day = forecast['Day']['IconPhrase']
         phrase_night = forecast['Night']['IconPhrase']
 
@@ -98,6 +104,8 @@ class Forecast5days:
 
         forecast_item = ForecastDay(
             date=date[:10],
+            sunrise=sunrise,
+            sunset=sunset,
             min_temperature=min_temperature,
             max_temperature=max_temperature,
             min_real_feel_temperature=min_real_feel_temperature,
@@ -112,6 +120,8 @@ class Forecast5days:
             ice_probability_night=ice_probability_night,
             long_phrase_day=long_phrase_day,
             long_phrase_night=long_phrase_night,
+            icon_day=icon_day,
+            icon_night=icon_night,
             phrase_day=phrase_day,
             phrase_night=phrase_night,
             has_precipitations_day=has_precipitations_day,
