@@ -6,19 +6,19 @@
 <div class="jumbotron border border-secondary" style="background-color:white; border-radius: 0px;">
     <h1 class="display-4">{{ headline }}</h1>
     <p class="lead">Maxima și minima în următoarele {{ forecast_length }} zile</p>
-    <div class="row">
-        <div class="col-md-6">
+    <div class="row mx-auto">
+        <div class="col">
             <div class="card mx-auto" style="width: 20rem; background-color:white;">
-                <h5 class="card-header" style="background-color:Tomato;"></h5>
+                <h5 class="card-header" style="background-color:Tomato; color:white;">Maximă</h5>
                 <div class="card-body">
                     <h5 class="card-title">{{ max_temperature_date }}</h5>
                     <p class="card-text">{{ max_temperature }} &#8451;</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col">
             <div class="card mx-auto" style="width: 20rem; background-color:white;">
-                <h5 class="card-header" style="background-color:DodgerBlue;"></h5>
+                <h5 class="card-header" style="background-color:DodgerBlue; color:white;">Minimă</h5>
                 <div class="card-body">
                     <h5 class="card-title">{{ min_temperature_date }}</h5>
                     <p class="card-text">{{ min_temperature }} &#8451;</p>

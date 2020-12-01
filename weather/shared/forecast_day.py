@@ -38,7 +38,12 @@ class ForecastDay:
                  phrase_night,
 
                  has_precipitations_day,
-                 has_precipitations_night
+                 has_precipitations_night,
+
+                 hours_of_sun,
+
+                 cloud_cover_day,
+                 cloud_cover_night,
                  ):
         self.__date = date
 
@@ -72,6 +77,11 @@ class ForecastDay:
 
         self.__has_precipitations_day = has_precipitations_day
         self.__has_precipitations_night = has_precipitations_night
+
+        self.__hours_of_sun = hours_of_sun
+
+        self.__cloud_cover_day = cloud_cover_day
+        self.__cloud_cover_night = cloud_cover_night
 
     @property
     def date(self):
@@ -191,6 +201,18 @@ class ForecastDay:
     def has_precipitations_night(self):
         return self.__has_precipitations_night
 
+    @property
+    def hours_of_sun(self):
+        return self.__hours_of_sun
+
+    @property
+    def cloud_cover_day(self):
+        return self.__cloud_cover_day
+
+    @property
+    def cloud_cover_night(self):
+        return self.__cloud_cover_night
+
     def __str__(self):
         """Return all forecast data neatly formatted."""
         return f"\nDate: {self.date}" \
@@ -215,4 +237,7 @@ class ForecastDay:
                f"\nPhrase day: {self.__phrase_day}" \
                f"\nPhrase night: {self.__phrase_night}" \
                f"\nHas precipitations during day: {self.__has_precipitations_day}" \
-               f"\nHas precipitations during night: {self.__has_precipitations_night}"
+               f"\nHas precipitations during night: {self.__has_precipitations_night}" \
+               f"\nHours of sun: {self.__hours_of_sun}" \
+               f"\nCloud cover day: {self.__cloud_cover_day}" \
+               f"\nCloud cover night: {self.__cloud_cover_night}"

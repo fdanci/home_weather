@@ -102,6 +102,11 @@ class Forecast5days:
         has_precipitations_day = forecast['Day']['HasPrecipitation']
         has_precipitations_night = forecast['Night']['HasPrecipitation']
 
+        hours_of_sun = forecast['HoursOfSun']
+
+        cloud_cover_day = forecast['Day']['CloudCover']
+        cloud_cover_night = forecast['Night']['CloudCover']
+
         forecast_item = ForecastDay(
             date=date[:10],
             sunrise=sunrise,
@@ -125,7 +130,10 @@ class Forecast5days:
             phrase_day=phrase_day,
             phrase_night=phrase_night,
             has_precipitations_day=has_precipitations_day,
-            has_precipitations_night=has_precipitations_night
+            has_precipitations_night=has_precipitations_night,
+            hours_of_sun=hours_of_sun,
+            cloud_cover_day=cloud_cover_day,
+            cloud_cover_night=cloud_cover_night
         )
         return forecast_item
 
