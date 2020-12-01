@@ -125,7 +125,7 @@ def vatra_dornei(request):
         # If forecast data exists, create 'Forecast' object from it.
         if today_forecasts:
             today_forecast = today_forecasts[0]
-            forecast: Forecast5days = Forecast5days('cosna', raw_data=today_forecast.forecast)
+            forecast: Forecast5days = Forecast5days('vatra_dornei', raw_data=today_forecast.forecast)
 
         # Otherwise send request to the API, and then create 'Forecast' object.
         else:
@@ -140,7 +140,7 @@ def vatra_dornei(request):
         # If forecast hour data exists, create 'Forecast12Hours' object from it.
         if current_hour_forecasts:
             current_hour_forecast = current_hour_forecasts[0]
-            forecast_12hours: Forecast12hours = Forecast12hours('cosna', raw_data=current_hour_forecast.forecast)
+            forecast_12hours: Forecast12hours = Forecast12hours('vatra_dornei', raw_data=current_hour_forecast.forecast)
 
         # Otherwise send request to the API, and then create 'Forecast12Hours' object and save it to DB.
         else:
@@ -169,3 +169,61 @@ def vatra_dornei(request):
         }
 
     return render(request, 'weather/vatra_dornei.html', context)
+
+
+def ilisesti(request):
+    """Show weather data about 'Ilisesti'."""
+    try:
+        # Retrieve the forecast for today, 'ilisesti' location.
+        today_forecasts: Forecast_DB = Forecast_DB.objects.filter(
+            location='ilisesti', date=DateUtil.get_date_today())
+        current_hour_forecasts: Forecast_DB = Forecast_DB.objects.filter(location='ilisesti',
+                                                                         date=DateUtil.get_date_hour_today())
+
+        # If forecast data exists, create 'Forecast' object from it.
+        if today_forecasts:
+            today_forecast = today_forecasts[0]
+            forecast: Forecast5days = Forecast5days('ilisesti', raw_data=today_forecast.forecast)
+
+        # Otherwise send request to the API, and then create 'Forecast' object.
+        else:
+            forecast: Forecast5days = Forecast5days('ilisesti')
+            today_forecast = Forecast_DB.objects.create(
+                forecast=forecast.raw_data,
+                date=DateUtil.get_date_today(),
+                location='ilisesti'
+            )
+            today_forecast.save()
+
+        # If forecast hour data exists, create 'Forecast12Hours' object from it.
+        if current_hour_forecasts:
+            current_hour_forecast = current_hour_forecasts[0]
+            forecast_12hours: Forecast12hours = Forecast12hours('ilisesti', raw_data=current_hour_forecast.forecast)
+
+        # Otherwise send request to the API, and then create 'Forecast12Hours' object and save it to DB.
+        else:
+            forecast_12hours: Forecast12hours = Forecast12hours('ilisesti')
+            current_hour_forecast = Forecast_DB.objects.create(
+                forecast=forecast_12hours.raw_data,
+                date=DateUtil.get_date_hour_today(),
+                location='ilisesti'
+            )
+            current_hour_forecast.save()
+
+    # In case of an error, add the error message to context, to be displayed in UI.
+    except Exception as err:
+        logger.error(err)
+        context = {
+            "error_message": err
+        }
+
+    # In case no errors occurred, create context for template.
+    else:
+        context = {
+            "forecast_list": forecast.forecast_list,
+            "forecast_hour_list": forecast_12hours.forecast_list,
+            "forecast_length": len(forecast.forecast_list),
+            "error_message": None
+        }
+
+    return render(request, 'weather/ilisesti.html', context)

@@ -24,6 +24,9 @@ class Forecast12hours:
             elif location == 'vatra_dornei':
                 self.__raw_data = Source1.forecast_12hours('275841').text  # The response received from the API
                 json_data = json.loads(self.__raw_data)
+            elif location == 'ilisesti':
+                self.__raw_data = Source1.forecast_12hours('280883').text  # The response received from the API
+                json_data = json.loads(self.__raw_data)
 
         self.__forecast_list = []
 

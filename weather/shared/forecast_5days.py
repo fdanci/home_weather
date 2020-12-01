@@ -24,6 +24,9 @@ class Forecast5days:
             elif location == 'vatra_dornei':
                 self.__raw_data = Source1.forecast_5days('275841').text  # The response as it is received from the API
                 json_data = json.loads(self.__raw_data)
+            elif location == 'ilisesti':
+                self.__raw_data = Source1.forecast_5days('280883').text  # The response as it is received from the API
+                json_data = json.loads(self.__raw_data)
 
         self.__headline = json_data['Headline']['Text']
         self.__headline_category = json_data['Headline']['Category']

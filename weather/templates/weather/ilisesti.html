@@ -1,0 +1,212 @@
+{% extends "weather/base.html" %}
+
+{% block content %}
+
+{% if not error_message %}
+<h1 class="display-4">Ilișești</h1>
+<p class="lead">Prognoza meteo zilnică pentru următoarele {{ forecast_length }} zile</p>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+    <ol class="carousel-indicators">
+        {% for forecast in forecast_list %}
+        <li data-target="#carouselExampleIndicators" class="{% if not forloop.counter0 %}active{% endif %}"
+            style="background-color: black;"></li>
+        {% endfor %}
+    </ol>
+    <div class="carousel-inner">
+        {% for forecast in forecast_list %}
+        {% if forloop.first %}
+        <div class="carousel-item active">
+            {% else %}
+            <div class="carousel-item">
+                {% endif %}
+                {% if forecast %}
+                <div class="d-block h-1000 w-100 border border-secondary" style="background-color:white;">
+                    <div class="container">
+                        <div class="row" style="margin-top:20px;">
+                            <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: center;">
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <h5 style="text-align:center; margin-top:5px; color:Tomato;">Maximă</h5>
+                                        <h5 class="card-title" style="margin-top:11px;">
+                                            {{ forecast.max_temperature }} &#8451;</h5>
+                                        <p class="card-text">
+                                            Resimțită {{ forecast.max_real_feel_temperature }} &#8451;</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: center;">
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <h5 style="text-align:center; margin-top:5px; color:DodgerBlue;">Minimă</h5>
+                                        <h5 class="card-title" style="margin-top:11px;">
+                                            {{ forecast.min_temperature }} &#8451;</h5>
+                                        <p class="card-text">
+                                            Resimțită {{ forecast.min_real_feel_temperature }} &#8451;</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr style="margin-top:30px; margin-bottom:30px;">
+
+                        <div class="row" style="margin-top:20px; margin-bottom:70px;">
+                            <div class="col-md-6" style="text-align: center;">
+                                <div class="card mx-auto"
+                                     style="width: 18rem; background-color:white;">
+                                    <h5 class="card-header" style="background-color:#EBEBEB;">Ziua</h5>
+                                    <div class="card-body">
+                                        <img src="https://www.accuweather.com/images/weathericons/{{ forecast.icon_day }}.svg"
+                                             style="width:50;" alt="img_day">
+                                        <p>{{ forecast.phrase_day }}</p>
+
+                                        {% if forecast.thunderstorm_probability_day %}
+                                        <p>Șanse furtună {{ forecast.thunderstorm_probability_day }} &#37;</p>
+                                        {% endif %}
+
+                                        {% if forecast.rain_probability_day %}
+                                        <p>Șanse de ploaie {{ forecast.rain_probability_day }} &#37;</p>
+                                        {% endif %}
+
+                                        {% if forecast.snow_probability_day %}
+                                        <p>Șanse de ninsoare {{ forecast.snow_probability_day }} &#37;</p>
+                                        {% endif %}
+
+                                        {% if forecast.ice_probability_day %}
+                                        <p>Șanse de gheață {{ forecast.ice_probability_day }} &#37;</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="text-align: center;">
+                                <div class="card mx-auto"
+                                     style="width: 18rem; background-color:white; margin-bottom:20px;">
+                                    <h5 class="card-header" style="background-color:#EBEBEB;">Noaptea</h5>
+                                    <div class="card-body">
+                                        <img src="https://www.accuweather.com/images/weathericons/{{ forecast.icon_night }}.svg"
+                                             style="width:50;" alt="img_night">
+                                        <p>{{ forecast.phrase_night }}</p>
+
+                                        {% if forecast.thunderstorm_probability_night %}
+                                        <p>Șanse furtună {{ forecast.thunderstorm_probability_night }} &#37;</p>
+                                        {% endif %}
+
+                                        {% if forecast.rain_probability_night %}
+                                        <p>Șanse de ploaie {{ forecast.rain_probability_night }} &#37;</p>
+                                        {% endif %}
+
+                                        {% if forecast.snow_probability_night %}
+                                        <p>Șanse de ninsoare {{ forecast.snow_probability_night }} &#37;</p>
+                                        {% endif %}
+
+                                        {% if forecast.ice_probability_night %}
+                                        <p>Șanse de gheață {{ forecast.ice_probability_night }} &#37;</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="carousel-caption">
+                    <h3 style="color:black;">{{ forecast.date }}</h3>
+                </div>
+            </div>
+            {% endfor %}
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev"
+               style="filter: invert(1);">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"
+               style="filter: invert(1);">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Afișează mai mult...
+</a>
+
+<hr>
+
+<div class="collapse mx-auto" id="collapseExample">
+
+    <div class="row mx-auto">
+
+        <div class="col-sm-12 col-md-12 col-lg-6">
+            <p class="lead">Prognoza meteo pentru următoarele 12 ore</p>
+            {% for forecast in forecast_hour_list %}
+            <div class="card mx-auto"
+                 style="background-color:white; margin-bottom:20px;">
+                <div class="card-body border border-secondary">
+
+                    <div class="row">
+                        <div class="col-6 col-sm-5 col-md-5 col-lg-5 my-auto">
+                            <p class="card-text" style="font-size: medium;">Ora {{ forecast.hour }}</p>
+                            <p style="font-size: small; margin-top:-10px;">{{ forecast.phrase }}</p>
+                        </div>
+                        <div class="col-2 col-sm-3 col-md-3 col-lg-3 my-auto">
+                            <img src="https://www.accuweather.com/images/weathericons/{{ forecast.icon }}.svg"
+                                 style="width:50;" alt="img_hour">
+                        </div>
+                        <div class="col-4 col-sm-4 col-md-4 col-lg-4 my-auto text-right">
+                            <p class="card-text" style="font-size: large;">{{ forecast.temperature }} &#8451;</p>
+                            <p class="card-text" style="font-size: 12; margin-top:-20px; color:grey;">
+                                Resimțită {{ forecast.real_feel_temperature }}</p>
+                        </div>
+                    </div>
+
+<!--                    {% if forecast.rain_probability %}-->
+<!--                    <p>Șanse de ploaie: {{ forecast.rain_probability }} &#37;</p>-->
+<!--                    {% endif %}-->
+
+<!--                    {% if forecast.snow_probability %}-->
+<!--                    <p>Șanse de ninsoare: {{ forecast.snow_probability }} &#37;</p>-->
+<!--                    {% endif %}-->
+
+<!--                    {% if forecast.ice_probability %}-->
+<!--                    <p>Șanse de gheață: {{ forecast.ice_probability }} &#37;</p>-->
+<!--                    {% endif %}-->
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-6">
+            <p class="lead">Alte informații posibil utile</p>
+            {% for forecast in forecast_list %}
+            <div class="card" style="background-color:white; margin-bottom:20px;">
+                <h5 class="card-header border border-secondary border-bottom-0"
+                    style="border-radius: 0px; background-color:white;">{{ forecast.date }}</h5>
+                <div class="card-body border border-secondary">
+                    <div class="row" style="margin-bottom:-15px;">
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                            <p>Răsărit la ora {{ forecast.sunrise }}</p>
+                            <p>Apus la ora {{ forecast.sunset }}</p>
+                            <p>Soare {{ forecast.hours_of_sun }} ore</p>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                            <p>Nori noaptea {{ forecast.cloud_cover_day }} &#37;</p>
+                            <p>Nori ziua {{ forecast.cloud_cover_night }} &#37;</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+
+{% else %}
+<p style="color:red;">{{ error_message }}...</p>
+{% endif %}
+
+{% endblock content %}
