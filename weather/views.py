@@ -48,6 +48,7 @@ def index(request):
             "min_temperature_date": forecast.min_temperature[1],
             "error_message": None,
             "forecast_length": len(forecast.forecast_list),
+            "has_precipitations": forecast.has_precipitations(),
             "headline": forecast.headline,
             'version': version
         }

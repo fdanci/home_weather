@@ -152,3 +152,10 @@ class Forecast5days:
     @property
     def raw_data(self):
         return self.__raw_data
+
+    def has_precipitations(self) -> bool:
+        """Returns true if during first days precipitations occur."""
+        for forecast in self.__forecast_list[0:3]:
+            if forecast.has_precipitations_day or forecast.has_precipitations_night:
+                return True
+        return False
