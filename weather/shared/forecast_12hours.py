@@ -42,6 +42,8 @@ class Forecast12hours:
         """
         date = forecast['DateTime']
 
+        icon = forecast['WeatherIcon']
+
         temperature = forecast['Temperature']['Value']
 
         real_feel_temperature = forecast['RealFeelTemperature']['Value']
@@ -56,6 +58,7 @@ class Forecast12hours:
 
         forecast_item = ForecastHour(
             date=date[:13],
+            icon=icon,
             temperature=temperature,
             real_feel_temperature=real_feel_temperature,
             rain_probability=rain_probability,

@@ -1,7 +1,7 @@
 {% extends "weather/base.html" %}
 
 {% block content %}
-{% load static %}
+
 {% if not error_message %}
 <h1 class="display-4">Vatra Dornei</h1>
 <p class="lead">Prognoza meteo zilnică pentru următoarele {{ forecast_length }} zile</p>
@@ -55,15 +55,7 @@
                                      style="width: 18rem; background-color:white;">
                                     <h5 class="card-header" style="background-color:#EBEBEB;">Ziua</h5>
                                     <div class="card-body">
-                                        {% if forecast.phrase_day == 'Parţial însorit' or forecast.phrase_day == 'Predominant însorit' %}
-                                        <img src="{% static 'images/sunny.png' %}" style="width:50;" alt="sunny">
-                                        {% elif forecast.phrase_day == 'Nori sporadici' %}
-                                        <img src="{% static 'images/partly_clouds_day.png' %}" style="width:50;" alt="partly sunny">
-                                        {% elif forecast.phrase_day == 'Fulguieli' or forecast.phrase_day == 'Ninsoare' %}
-                                        <img src="{% static 'images/snow_day.png' %}" style="width:50;" alt="snow">
-                                        {% elif forecast.phrase_day == 'Predominant noros' or forecast.phrase_day == 'Noros' %}
-                                        <img src="{% static 'images/mostly_clouds.png' %}" style="width:50;" alt="clouds">
-                                        {% endif %}
+                                        <img src="https://www.accuweather.com/images/weathericons/{{ forecast.icon_day }}.svg" style="width:50;" alt="img_day">
                                         <p>{{ forecast.phrase_day }}</p>
 
                                         {% if forecast.thunderstorm_probability_day %}
@@ -89,15 +81,7 @@
                                      style="width: 18rem; background-color:white; margin-bottom:20px;">
                                     <h5 class="card-header" style="background-color:#EBEBEB;">Noaptea</h5>
                                     <div class="card-body">
-                                        {% if forecast.phrase_night == 'Nori sporadici' or forecast.phrase_night == 'Parţial noros' %}
-                                        <img src="{% static 'images/partly_clouds_night.png' %}" style="width:50;" alt="partly clouds">
-                                        {% elif forecast.phrase_night == 'Fulguieli' or forecast.phrase_night == 'Ninsoare' %}
-                                        <img src="{% static 'images/snow_night.png' %}" style="width:50;" alt="snow">
-                                        {% elif forecast.phrase_night == 'Predominant noros' or forecast.phrase_night == 'Noros' or forecast.icon_night == 'Mohorât' %}
-                                        <img src="{% static 'images/mostly_clouds.png' %}" style="width:50;" alt="clouds">
-                                        {% elif forecast.phrase_night == 'Predominant senin' or forecast.phrase_night == 'Senin' %}
-                                        <img src="{% static 'images/clear_sky_night.png' %}" style="width:50;" alt="clear sky">
-                                        {% endif %}
+                                        <img src="https://www.accuweather.com/images/weathericons/{{ forecast.icon_night }}.svg" style="width:50;" alt="img_night">
                                         <p>{{ forecast.phrase_night }}</p>
 
                                         {% if forecast.thunderstorm_probability_night %}
@@ -163,15 +147,7 @@
                     <p style="font-size: small; margin-top:-10px;">{{ forecast.phrase }}</p>
                 </div>
                 <div class="col my-auto">
-                    {% if forecast.phrase == 'Parţial însorit' or forecast.phrase == 'Predominant însorit' or forecast.phrase == 'Predominant senin' %}
-                    <img src="{% static 'images/sunny.png' %}" style="width:50;" alt="sunny">
-                    {% elif forecast.phrase == 'Nori sporadici' %}
-                    <img src="{% static 'images/partly_clouds_day.png' %}" style="width:50;" alt="partly sunny">
-                    {% elif forecast.phrase == 'Fulguieli' or forecast.phrase == 'Ninsoare' %}
-                    <img src="{% static 'images/snow_day.png' %}" style="width:50;" alt="snow">
-                    {% elif forecast.phrase == 'Predominant noros' or forecast.phrase == 'Noros' or forecast.phrase == 'Parţial noros' %}
-                    <img src="{% static 'images/mostly_clouds.png' %}" style="width:50;" alt="clouds">
-                    {% endif %}
+                    <img src="https://www.accuweather.com/images/weathericons/{{ forecast.icon }}.svg" style="width:50;" alt="img_hour">
                 </div>
                 <div class="col my-auto">
                     <p class="card-text" style="font-size: large;">{{ forecast.temperature }} &#8451;</p>

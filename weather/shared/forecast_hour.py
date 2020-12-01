@@ -7,6 +7,8 @@ class ForecastHour:
     def __init__(self,
                  date,
 
+                 icon,
+
                  temperature,
 
                  real_feel_temperature,
@@ -20,6 +22,8 @@ class ForecastHour:
                  is_daylight
                  ):
         self.__date = date
+
+        self.__icon = icon
 
         self.__temperature = temperature
 
@@ -36,6 +40,10 @@ class ForecastHour:
     @property
     def date(self):
         return self.__date
+
+    @property
+    def icon(self) -> str:
+        return self.__icon
 
     def hour(self):
         return self.__date[11:13]

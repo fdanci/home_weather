@@ -51,8 +51,7 @@ def index(request):
             "headline": forecast.headline,
             'version': version
         }
-    for day in forecast.forecast_list:
-        print(day)
+
     return render(request, 'weather/index.html', context)
 
 
