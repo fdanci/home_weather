@@ -1,2 +1,2 @@
 web: gunicorn home_weather.wsgi --log-file -
-worker: python manage.py celery worker --loglevel=info
+celery: python manage.py celeryd -c 1 --beat
