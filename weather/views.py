@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 def index(request):
     """Show home page."""
     version = '1.0'
-    send_email()
+    send_email.delay()
     try:
         # Retrieve the forecast for today, 'cosna' location.
         today_forecasts: Forecast_DB = Forecast_DB.objects.filter(location='cosna', date=DateUtil.get_date_today())
