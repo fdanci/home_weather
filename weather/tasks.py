@@ -4,13 +4,14 @@ from django.core.mail import send_mail
 
 from decouple import config
 
+import requests
+
 from .models import Settings
 
 
 @shared_task
 def send_email_task():
-    # url = 
-    # response = requests.request("GET", url)
+    requests.request("GET", config('BLANK_URL'))
 
     settings = Settings.objects.all()[0]
     message = f'location {settings.location}\n' \

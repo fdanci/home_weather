@@ -14,9 +14,9 @@ app = Celery('home_weather')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
 app.conf.beat_schedule = {
-    'every-30-seconds': {
+    'every-60-seconds': {
         'task': 'weather.tasks.send_email_task',
-        'schedule': 15
+        'schedule': 60
     },
 }
 app.conf.timezone = 'UTC'
