@@ -33,27 +33,30 @@
 
     <hr style="margin-top:40px;">
 
-    <div class="row mx-auto">
-        <div class="col my-auto text-right">
-            <p class="lead my-auto">Alarmă vreme rea</p>
-        </div>
-        <div class="col my-auto text-left">
-            <div class="row">
-                <form class="my-auto" action="{% url 'weather:update_email_alarm' 'on' %}" method="post">
-                    {% csrf_token %}
-                    <button type="radio" style="width: 65px; border-radius: 0"
-                            class="{% if alarm_status == 'off' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
-                            name="submit">Da
-                    </button>
-                </form>
-                <form class="my-auto" action="{% url 'weather:update_email_alarm' 'off' %}" method="post">
-                    {% csrf_token %}
-                    <button type="radio" style="width: 65px; border-radius: 0"
-                            class="{% if not alarm_status == 'off' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
-                            name="submit">Nu
-                    </button>
-                </form>
-            </div>
+    <h1 class="display-5">Alarme</h1>
+
+    <p class="card-text" style="font-size: 13; color:grey;">
+        Se poate activa o alarmă care va anunța pe email sau prin mesaj dacă vremea e bună de fân, cu alte cuvinte
+        dacă timpul va fi frumos și nu va ploua. Emailul sau mesajul vor fi trimise la ora setată în pagina de setări.
+        De asemenea se poate schimba locația și zilele în care alarmele să fie trimise.</p>
+
+    <div class="row justify-content-center" style="margin-left:-50px;">
+        <p class="lead my-auto" style="margin-right:25px;">Email</p>
+        <div class="row">
+            <form class="my-auto" action="{% url 'weather:update_email_alarm' 'on' %}" method="post">
+                {% csrf_token %}
+                <button data-toggle="tooltip" type="radio" style="width: 65px; border-radius: 0"
+                        class="{% if alarm_status == 'off' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">Da
+                </button>
+            </form>
+            <form class="my-auto" action="{% url 'weather:update_email_alarm' 'off' %}" method="post">
+                {% csrf_token %}
+                <button type="radio" style="width: 65px; border-radius: 0"
+                        class="{% if not alarm_status == 'off' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">Nu
+                </button>
+            </form>
         </div>
     </div>
 </div>
