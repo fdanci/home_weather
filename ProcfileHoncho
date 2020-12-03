@@ -1,0 +1,3 @@
+web: gunicorn home_weather.wsgi --log-file -
+worker1: celery -A home_weather beat -l info
+worker2: celery -A home_weather worker -l info
