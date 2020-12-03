@@ -10,7 +10,6 @@ from .models import Settings, Forecast
 from .shared.date_util import DateUtil
 from .shared.forecast_5days import Forecast5days
 
-
 @shared_task
 def send_email_task():
     # First make sure to keep the server awake by pinging itself.
@@ -31,9 +30,9 @@ def send_email_task():
         pass
     else:
         if settings.alarm_status == 'on' and not forecast.has_precipitations():
-            message = f"{forecast.headline}\n" \
-                      f"Minimă: {forecast.min_temperature}" \
-                      f"Maximă: {forecast.min_temperature}"
+            message = f"{forecast.headline}\n\n" \
+                      f"Minimă: {forecast.min_temperature[0]} u'\N{DEGREE SIGN}'C ({forecast.min_temperature[1]})\n" \
+                      f"Maximă: {forecast.max_temperature[0]} u'\N{DEGREE SIGN}'C ({forecast.max_temperature[0]})"
 
             send_mail('Vreme rea',
                       message,
