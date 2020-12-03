@@ -247,8 +247,6 @@ def blank(_):
 
 def update_email_alarm(_, alarm_status: str):
     settings = Settings.objects.filter(pk=1)[0]
-    print("BEFORE", settings.alarm_status)
     settings.alarm_status = alarm_status
     settings.save()
-    print("AFTER", settings.alarm_status)
     return redirect('/')

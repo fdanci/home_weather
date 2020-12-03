@@ -61,14 +61,14 @@
 <!--    <hr style="margin-top:30px;">-->
     <div class="row mx-auto">
         <div class="col my-auto text-right">
-            <p class="lead my-auto">Alarmă pe email în caz de vreme rea</p>
+            <p class="lead my-auto">Alarmă vreme rea</p>
         </div>
         <div class="col my-auto text-left">
             <div class="row">
                 <form class="my-auto" action="{% url 'weather:update_email_alarm' 'on' %}" method="post">
                     {% csrf_token %}
                     <div class="btn-group btn-group-toggle text-left" data-toggle="buttons">
-                        <button type="radio" style="width: 100px; border-radius: 0"
+                        <button type="radio" style="width: 65px; border-radius: 0"
                                 class="{% if alarm_status == 'off' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
                                 name="submit">Da
                         </button>
@@ -77,7 +77,7 @@
                 <form class="my-auto" action="{% url 'weather:update_email_alarm' 'off' %}" method="post">
                     {% csrf_token %}
                     <div class="btn-group btn-group-toggle text-left" data-toggle="buttons">
-                        <button type="radio" style="width: 100px; border-radius: 0"
+                        <button type="radio" style="width: 65px; border-radius: 0"
                                 class="{% if not alarm_status == 'off' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
                                 name="submit">Nu
                         </button>
