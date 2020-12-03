@@ -6,8 +6,6 @@ from weather.models import Forecast as Forecast_DB
 from weather.models import Settings
 from weather.shared.date_util import DateUtil
 
-from .tasks import send_email_task
-
 import logging
 
 logger = logging.getLogger(__name__)
@@ -15,24 +13,26 @@ logger = logging.getLogger(__name__)
 
 def index(request):
     """Show home page."""
-    version = '1.0'
+    version = '2.0'
+
+    location = Settings.objects.all()[0].location
 
     try:
         # Retrieve the forecast for today, for location saved in settings.
-        today_forecasts: Forecast_DB = Forecast_DB.objects.filter(location='cosna', date=DateUtil.get_date_today())
+        today_forecasts: Forecast_DB = Forecast_DB.objects.filter(location=location, date=DateUtil.get_date_today())
 
         # If forecast data exists, create 'Forecast' object from it.
         if today_forecasts:
             today_forecast = today_forecasts[0]
-            forecast: Forecast5days = Forecast5days('cosna', raw_data=today_forecast.forecast)
+            forecast: Forecast5days = Forecast5days(location, raw_data=today_forecast.forecast)
 
         # Otherwise send request to the API, and then create 'Forecast' object.
         else:
-            forecast: Forecast5days = Forecast5days('cosna')
+            forecast: Forecast5days = Forecast5days(location)
             today_forecast = Forecast_DB.objects.create(
                 forecast=forecast.raw_data,
                 date=DateUtil.get_date_today(),
-                location='cosna'
+                location=location
             )
             today_forecast.save()
 
@@ -46,6 +46,13 @@ def index(request):
 
     # In case no errors occurred, create context for template.
     else:
+        if location == 'cosna':
+            location = 'Coșna'
+        elif location == 'vatra_dornei':
+            location = 'Vatra Dornei'
+        else:
+            location = 'Ilișești'
+
         context = {
             "max_temperature": forecast.max_temperature[0],
             "max_temperature_date": forecast.max_temperature[1],
@@ -56,7 +63,8 @@ def index(request):
             "has_precipitations": forecast.has_precipitations(),
             "headline": forecast.headline,
             'version': version,
-            'alarm_status': Settings.objects.all()[0].alarm_status
+            'alarm_status': Settings.objects.all()[0].alarm_status,
+            'location': location
         }
 
     return render(request, 'weather/index.html', context)

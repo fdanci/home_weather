@@ -30,12 +30,13 @@ def send_email_task():
         except Exception:
             pass
         else:
-            if not forecast.has_precipitations():
+            if not forecast.has_precipitations() \
+                    and (DateUtil.get_hour_today() == '06' or DateUtil.get_hour_today() == '10'):
                 message = f"{forecast.headline}\n\n" \
                           f"Minimă: {forecast.min_temperature[0]} \N{DEGREE SIGN}C ({forecast.min_temperature[1]})\n" \
                           f"Maximă: {forecast.max_temperature[0]} \N{DEGREE SIGN}C ({forecast.max_temperature[1]})"
 
-                send_mail('Vreme rea',
+                send_mail('Vreme rea de polog',
                           message,
                           config('EMAIL'),
                           ['florin.danci96@gmail.com'])

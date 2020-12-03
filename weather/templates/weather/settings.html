@@ -11,7 +11,8 @@
     <p class="card-text" style="font-size: 13; color:grey;">
         Se poate activa o alarmă care va anunța pe email sau prin mesaj dacă vremea e bună de fân, cu alte cuvinte
         dacă timpul va fi frumos și nu va ploua. Emailul sau mesajul vor fi trimise la ora setată în pagina de setări.
-        De asemenea se poate schimba locația și zilele în care alarmele să fie trimise.</p>
+        De asemenea se poate schimba locația și zilele în care alarmele să fie trimise.
+        <span style="color:red;">Alarmele sunt trimise la ora 8 dimineata.</span></p>
 
     <div class="row justify-content-center" style="margin-left:-50px;">
         <p class="lead my-auto" style="margin-right:25px;">Email</p>
@@ -42,8 +43,7 @@
         Modifică locația de bază. Va influența pagina principală și alarmele astfel încât prognozele luate în
         calcul vor fi pentru această locație.</p>
 
-    <div class="row justify-content-center" style="margin-left:-50px;">
-        <p class="lead my-auto" style="margin-right:25px;">Email</p>
+    <div class="row justify-content-center">
         <div class="row">
             <form class="my-auto" action="{% url 'weather:update_settings_location' 'cosna' %}" method="post">
                 {% csrf_token %}
