@@ -13,6 +13,14 @@ app = Celery('home_weather')
 #   should have a `CELERY_` prefix.
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
+app.conf.beat_schedule = {
+    'every-30-seconds': {
+        'task': 'weather.tasks.send_email_task',
+        'schedule': 15
+    },
+}
+app.conf.timezone = 'UTC'
+
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
 

@@ -4,7 +4,7 @@ from weather.shared.forecast_12hours import Forecast12hours
 from weather.models import Forecast as Forecast_DB
 from weather.shared.date_util import DateUtil
 
-from .tasks import send_email
+from .tasks import send_email_task
 
 import logging
 
@@ -14,7 +14,9 @@ logger = logging.getLogger(__name__)
 def index(request):
     """Show home page."""
     version = '1.0'
-    send_email.delay()
+
+    send_email_task.delay()
+
     try:
         # Retrieve the forecast for today, 'cosna' location.
         today_forecasts: Forecast_DB = Forecast_DB.objects.filter(location='cosna', date=DateUtil.get_date_today())
