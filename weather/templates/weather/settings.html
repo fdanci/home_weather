@@ -54,9 +54,9 @@
             </form>
             <form class="my-auto" action="{% url 'weather:update_settings_location' 'vatra_dornei' %}" method="post">
                 {% csrf_token %}
-                <button type="radio" style="width: 115px; border-radius: 0"
+                <button type="radio" style="width: 70px; border-radius: 0"
                         class="{% if not location == 'vatra_dornei' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
-                        name="submit">Vatra Dornei
+                        name="submit">Vatra
                 </button>
             </form>
             <form class="my-auto" action="{% url 'weather:update_settings_location' 'ilisesti' %}" method="post">

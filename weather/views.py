@@ -267,10 +267,10 @@ def update_settings_email_alarm(_, alarm_status: str):
     return redirect('/settings')
 
 
-def update_settings_location(_, l: str):
-    """View used to update the email alarm on or off."""
+def update_settings_location(_, location: str):
+    """View used to update the default location."""
     setting = Settings.objects.filter(pk=1)[0]
-    setting.location = l
+    setting.location = location
     setting.save()
     return redirect('/settings')
 

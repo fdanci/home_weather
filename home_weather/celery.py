@@ -14,9 +14,9 @@ app = Celery('home_weather')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
 app.conf.beat_schedule = {
-    'every-300-seconds': {
+    'every-20-seconds': {
         'task': 'weather.tasks.send_email_task',
-        'schedule': 300
+        'schedule': 20
     },
     'every-3500-seconds': {
         'task': 'weather.tasks.wake_up',

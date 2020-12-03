@@ -16,7 +16,7 @@ class Settings(models.Model):
     """Single entity holding information about worker beat interval."""
 
     # The location where the forecast conditions are checked.
-    location = models.CharField(max_length=10, default='cosna')
+    location = models.CharField(max_length=20, default='cosna')
     # 1 - Monday, 2 - Tuesday, etc.
     frequency = models.CharField(max_length=20, default='1')
     # The hour at which the beat starts.
