@@ -17,10 +17,8 @@ def index(request):
     """Show home page."""
     version = '1.0'
 
-    send_email_task.delay()
-
     try:
-        # Retrieve the forecast for today, 'cosna' location.
+        # Retrieve the forecast for today, for location saved in settings.
         today_forecasts: Forecast_DB = Forecast_DB.objects.filter(location='cosna', date=DateUtil.get_date_today())
 
         # If forecast data exists, create 'Forecast' object from it.
@@ -246,7 +244,37 @@ def blank(_):
 
 
 def update_email_alarm(_, alarm_status: str):
-    settings = Settings.objects.filter(pk=1)[0]
-    settings.alarm_status = alarm_status
-    settings.save()
+    """View used to update the email alarm on or off."""
+    setting = Settings.objects.filter(pk=1)[0]
+    setting.alarm_status = alarm_status
+    setting.save()
     return redirect('/')
+
+
+def update_settings_email_alarm(_, alarm_status: str):
+    """View used to update the email alarm on or off."""
+    setting = Settings.objects.filter(pk=1)[0]
+    setting.alarm_status = alarm_status
+    setting.save()
+    return redirect('/settings')
+
+
+def update_settings_location(_, l: str):
+    """View used to update the email alarm on or off."""
+    setting = Settings.objects.filter(pk=1)[0]
+    setting.location = l
+    setting.save()
+    return redirect('/settings')
+
+
+def settings(request):
+    """View for the 'Settings' page."""
+    setting = Settings.objects.all()[0]
+
+    context = {
+        'alarm_status': setting.alarm_status,
+        'location': setting.location,
+        'hour': setting.hour,
+        "error_message": None
+    }
+    return render(request, 'weather/settings.html', context)
