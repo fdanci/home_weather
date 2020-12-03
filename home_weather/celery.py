@@ -16,7 +16,11 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.conf.beat_schedule = {
     'every-60-seconds': {
         'task': 'weather.tasks.send_email_task',
-        'schedule': 15
+        'schedule': 60
+    },
+    'every-3540-seconds': {
+        'task': 'weather.tasks.wake_up',
+        'schedule': 3540
     },
 }
 app.conf.timezone = 'UTC'
