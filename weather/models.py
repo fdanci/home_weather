@@ -21,3 +21,5 @@ class Settings(models.Model):
     frequency = models.CharField(max_length=20, default='1')
     # The hour at which the beat starts.
     hour = models.CharField(max_length=20, default='08h00')
+
+    alarm_status = models.CharField(max_length=4, default='off')

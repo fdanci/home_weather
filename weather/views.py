@@ -1,8 +1,9 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from weather.shared.forecast_5days import Forecast5days
 from weather.shared.forecast_12hours import Forecast12hours
 from weather.models import Forecast as Forecast_DB
+from weather.models import Settings
 from weather.shared.date_util import DateUtil
 
 from .tasks import send_email_task
@@ -56,7 +57,8 @@ def index(request):
             "forecast_length": len(forecast.forecast_list),
             "has_precipitations": forecast.has_precipitations(),
             "headline": forecast.headline,
-            'version': version
+            'version': version,
+            'alarm_status': Settings.objects.all()[0].alarm_status
         }
 
     return render(request, 'weather/index.html', context)
@@ -235,9 +237,18 @@ def ilisesti(request):
     return render(request, 'weather/ilisesti.html', context)
 
 
-def blank(request):
+def blank(_):
     """
     Empty page, used to wake up the app and thus prevent it
     from going to sleep and shutting down the celery workers.
     """
     return HttpResponse("<p>blank</p>")
+
+
+def update_email_alarm(_, alarm_status: str):
+    settings = Settings.objects.filter(pk=1)[0]
+    print("BEFORE", settings.alarm_status)
+    settings.alarm_status = alarm_status
+    settings.save()
+    print("AFTER", settings.alarm_status)
+    return redirect('/')
