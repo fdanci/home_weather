@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from weather.shared.forecast_5days import Forecast5days
 from weather.shared.forecast_12hours import Forecast12hours
@@ -232,3 +233,11 @@ def ilisesti(request):
         }
 
     return render(request, 'weather/ilisesti.html', context)
+
+
+def blank(request):
+    """
+    Empty page, used to wake up the app and thus prevent it
+    from going to sleep and shutting down the celery workers.
+    """
+    return HttpResponse("<p>blank</p>")

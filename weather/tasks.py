@@ -9,6 +9,9 @@ from .models import Settings
 
 @shared_task
 def send_email_task():
+    # url = 
+    # response = requests.request("GET", url)
+
     settings = Settings.objects.all()[0]
     message = f'location {settings.location}\n' \
               f'frequency {settings.frequency}\n' \
