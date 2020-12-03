@@ -10,10 +10,11 @@ from .models import Settings
 @shared_task
 def send_email_task():
     settings = Settings.objects.all()[0]
+    message = f'location {settings.location}\n' \
+              f'frequency {settings.frequency}\n' \
+              f'hour {settings.hour}'
     send_mail('Test settings email task',
-              f'location {settings.location}',
-              f'frequency {settings.frequency}',
-              f'hour {settings.hour}',
+              message,
               config('EMAIL'),
               ['florin.danci96@gmail.com'])
     return None
