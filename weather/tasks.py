@@ -31,7 +31,7 @@ def send_email_task():
             pass
         else:
             if not forecast.has_precipitations() \
-                    and (DateUtil.get_hour_today() == '06' or DateUtil.get_hour_today() == '10'):
+                    and (DateUtil.get_hour_today() == '10' or DateUtil.get_hour_today() == '11' or DateUtil.get_hour_today() == '12'):
                 message = f"{forecast.headline}\n\n" \
                           f"Minimă: {forecast.min_temperature[0]} \N{DEGREE SIGN}C ({forecast.min_temperature[1]})\n" \
                           f"Maximă: {forecast.max_temperature[0]} \N{DEGREE SIGN}C ({forecast.max_temperature[1]})"
