@@ -81,61 +81,53 @@
 
     <div class="row justify-content-center">
         <div class="row">
-            <form class="my-auto" action="{% url 'weather:update_settings_location' 'cosna' %}" method="post">
+            <form class="my-auto" action="{% url 'weather:update_settings_day' '0' %}" method="post">
                 {% csrf_token %}
-                <button type="radio" style="width: 85px; border-radius: 0"
-                        class="{% if not location == 'cosna' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
-                        name="submit">Luni
+                <button type="radio" style="width: 35px; border-radius: 0"
+                        class="{% if '0' not in day_list %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">L
                 </button>
             </form>
-            <form class="my-auto" action="{% url 'weather:update_settings_location' 'vatra_dornei' %}" method="post">
+            <form class="my-auto" action="{% url 'weather:update_settings_day' '1' %}" method="post">
                 {% csrf_token %}
-                <button type="radio" style="width: 85px; border-radius: 0"
-                        class="{% if not location == 'vatra_dornei' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
-                        name="submit">Marți
+                <button type="radio" style="width: 35px; border-radius: 0"
+                        class="{% if '1' not in day_list %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">M
                 </button>
             </form>
-            <form class="my-auto" action="{% url 'weather:update_settings_location' 'ilisesti' %}" method="post">
+            <form class="my-auto" action="{% url 'weather:update_settings_day' '2' %}" method="post">
                 {% csrf_token %}
-                <button type="radio" style="width: 85px; border-radius: 0"
-                        class="{% if not location == 'ilisesti' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
-                        name="submit">Miercuri
+                <button type="radio" style="width: 35px; border-radius: 0"
+                        class="{% if '2' not in day_list %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">M
                 </button>
             </form>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="row">
-            <form class="my-auto" action="{% url 'weather:update_settings_location' 'cosna' %}" method="post">
+            <form class="my-auto" action="{% url 'weather:update_settings_day' '3' %}" method="post">
                 {% csrf_token %}
-                <button type="radio" style="width: 85px; border-radius: 0"
-                        class="{% if not location == 'cosna' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
-                        name="submit">Joi
+                <button type="radio" style="width: 35px; border-radius: 0"
+                        class="{% if '3' not in day_list %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">J
                 </button>
             </form>
-            <form class="my-auto" action="{% url 'weather:update_settings_location' 'vatra_dornei' %}" method="post">
+            <form class="my-auto" action="{% url 'weather:update_settings_day' '4' %}" method="post">
                 {% csrf_token %}
-                <button type="radio" style="width: 85px; border-radius: 0"
-                        class="{% if not location == 'vatra_dornei' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
-                        name="submit">Vineri
+                <button type="radio" style="width: 35px; border-radius: 0"
+                        class="{% if '4' not in day_list %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">V
                 </button>
             </form>
-            <form class="my-auto" action="{% url 'weather:update_settings_location' 'ilisesti' %}" method="post">
+            <form class="my-auto" action="{% url 'weather:update_settings_day' '5' %}" method="post">
                 {% csrf_token %}
-                <button type="radio" style="width: 85px; border-radius: 0"
-                        class="{% if not location == 'ilisesti' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
-                        name="submit">Sâmbătă
+                <button type="radio" style="width: 35px; border-radius: 0"
+                        class="{% if '5' not in day_list %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">S
                 </button>
             </form>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="row">
-            <form class="my-auto" action="{% url 'weather:update_settings_location' 'cosna' %}" method="post">
+            <form class="my-auto" action="{% url 'weather:update_settings_day' '6' %}" method="post">
                 {% csrf_token %}
-                <button type="radio" style="width: 100px; border-radius: 0"
-                        class="{% if not location == 'cosna' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
-                        name="submit">Duminică
+                <button type="radio" style="width: 35px; border-radius: 0"
+                        class="{% if '6' not in day_list %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">D
                 </button>
             </form>
         </div>

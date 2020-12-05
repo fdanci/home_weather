@@ -255,7 +255,10 @@ def update_email_alarm(_, alarm_status: str):
     """View used to update the email alarm on or off."""
     setting = Settings.objects.filter(pk=1)[0]
     setting.alarm_status = alarm_status
+
+    # Save changes made to db.
     setting.save()
+
     return redirect('/')
 
 
@@ -263,7 +266,10 @@ def update_settings_email_alarm(_, alarm_status: str):
     """View used to update the email alarm on or off."""
     setting = Settings.objects.filter(pk=1)[0]
     setting.alarm_status = alarm_status
+
+    # Save changes made to db.
     setting.save()
+
     return redirect('/settings')
 
 
@@ -271,18 +277,46 @@ def update_settings_location(_, location: str):
     """View used to update the default location."""
     setting = Settings.objects.filter(pk=1)[0]
     setting.location = location
+
+    # Save changes made to db.
     setting.save()
+
+    return redirect('/settings')
+
+
+def update_settings_day(_, day: str):
+    """View used to update the default location."""
+    setting = Settings.objects.filter(pk=1)[0]
+    setting_day = setting.day
+    setting_day_list: list(str) = setting_day.split(',')
+
+    # If setting already contains this day,
+    # it must be removed from the list, else it will be added.
+    if day not in setting_day_list:
+        setting_day_list.append(day)
+    else:
+        setting_day_list.remove(day)
+    setting_day_list.sort()
+
+    # Convert list of str to str, where days separated by comma.
+    setting_day = ','.join(setting_day_list)
+    setting.day = setting_day
+
+    # Save changes made to db.
+    setting.save()
+
     return redirect('/settings')
 
 
 def settings(request):
     """View for the 'Settings' page."""
     setting = Settings.objects.all()[0]
-
+    print(setting.day)
     context = {
         'alarm_status': setting.alarm_status,
         'location': setting.location,
         'hour': setting.hour,
+        'day_list': setting.day.split(','),
         "error_message": None
     }
     return render(request, 'weather/settings.html', context)

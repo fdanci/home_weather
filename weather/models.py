@@ -17,8 +17,8 @@ class Settings(models.Model):
 
     # The location where the forecast conditions are checked.
     location = models.CharField(max_length=20, default='cosna')
-    # 0 - Monday, 1 - Tuesday, etc.
-    frequency = models.CharField(max_length=20, default='0')
+    # 0 - Monday, 1 - Tuesday, etc. Can be multiple days separated by comma, e.g. 1,3,4,5.
+    day = models.CharField(max_length=20, default='0')
     # The hour at which the beat starts.
     hour = models.CharField(max_length=20, default='5')
 

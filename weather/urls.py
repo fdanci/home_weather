@@ -14,4 +14,5 @@ urlpatterns = [
     path('update_settings_email_alarm/<str:alarm_status>/', views.update_settings_email_alarm,
          name='update_settings_email_alarm'),
     path('update_settings_location/<str:location>/', views.update_settings_location, name='update_settings_location'),
+    path('update_settings_day/<str:day>/', views.update_settings_day, name='update_settings_day'),
 ]
