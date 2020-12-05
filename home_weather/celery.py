@@ -28,7 +28,8 @@ app.conf.beat_schedule = {
         'schedule': crontab(minute='*/29')
     },
 }
-app.conf.timezone = 'UTC'
+
+app.conf.timezone = 'Europe/Bucharest'
 
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
