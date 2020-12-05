@@ -38,15 +38,16 @@ def send_email_task():
             logger.error('tasks.send_email_task')
             logger.error(err)
         else:
-            # if forecast.has_precipitations():
-            message = f"{forecast.headline}\n\n" \
-                      f"Minimă: {forecast.min_temperature[0]} \N{DEGREE SIGN}C ({forecast.min_temperature[1]})\n" \
-                      f"Maximă: {forecast.max_temperature[0]} \N{DEGREE SIGN}C ({forecast.max_temperature[1]})"
+            if forecast.has_precipitations():
+                message = f"{forecast.headline}\n" \
+                          f"Minimă: {forecast.min_temperature[0]} \N{DEGREE SIGN}C ({forecast.min_temperature[1]})\n" \
+                          f"Maximă: {forecast.max_temperature[0]} \N{DEGREE SIGN}C ({forecast.max_temperature[1]})\n\n" \
+                          f"{forecast.days_that_rain()}"
 
-            send_mail('Vreme rea de polog',
-                      message,
-                      config('EMAIL'),
-                      ['florin.danci96@gmail.com'])
+                send_mail('Vreme rea de polog',
+                          message,
+                          config('EMAIL'),
+                          ['florin.danci96@gmail.com'])
     return None
 
 
