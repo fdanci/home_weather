@@ -159,7 +159,6 @@ class Forecast5days:
     def has_precipitations(self) -> bool:
         """Returns true if during first days precipitations or bad weather occur."""
         for forecast in self.__forecast_list[0:4]:
-            print(forecast.snow_probability_day)
             if forecast.has_precipitations_day or forecast.has_precipitations_night:
                 return True
             if forecast.thunderstorm_probability_day  or forecast.thunderstorm_probability_night:
