@@ -159,11 +159,14 @@ class Forecast5days:
     def has_precipitations(self) -> bool:
         """Returns true if during first days precipitations or bad weather occur."""
         for forecast in self.__forecast_list[0:4]:
+            print(forecast.snow_probability_day)
             if forecast.has_precipitations_day or forecast.has_precipitations_night:
                 return True
-            if forecast.snow_probability_day > 0 or forecast.snow_probability_night > 0:
+            if forecast.thunderstorm_probability_day  or forecast.thunderstorm_probability_night:
                 return True
-            if forecast.ice_probability_day > 0 or forecast.ice_probability_night > 0:
+            if forecast.snow_probability_day  or forecast.snow_probability_night:
+                return True
+            if forecast.ice_probability_day or forecast.ice_probability_night:
                 return True
         return False
 
@@ -171,21 +174,21 @@ class Forecast5days:
         """Returns str info about bad weather days."""
         result = ''
         for forecast in self.__forecast_list[0:4]:
-            if forecast.thunderstorm_probability_day > 0:
+            if forecast.thunderstorm_probability_day:
                 result = result + f'Șanse furtună ziua {forecast.thunderstorm_probability_day} ({forecast.date})\n'
-            if forecast.thunderstorm_probability_day > 0:
+            if forecast.thunderstorm_probability_day:
                 result = result + f'Șanse furtună noaptea {forecast.thunderstorm_probability_night} ({forecast.date})\n'
-            if forecast.rain_probability_day > 0:
+            if forecast.rain_probability_day:
                 result = result + f'Șanse ploaie ziua {forecast.rain_probability_day} ({forecast.date})\n'
-            if forecast.rain_probability_day > 0:
+            if forecast.rain_probability_day:
                 result = result + f'Șanse ploaie noaptea {forecast.rain_probability_night} ({forecast.date})\n'
-            if forecast.snow_probability_day > 0:
+            if forecast.snow_probability_day:
                 result = result + f'Șanse zăpadă ziua {forecast.snow_probability_day} ({forecast.date})\n'
-            if forecast.snow_probability_day > 0:
+            if forecast.snow_probability_day:
                 result = result + f'Șanse zăpadă noaptea {forecast.snow_probability_night} ({forecast.date})\n'
-            if forecast.ice_probability_day > 0:
+            if forecast.ice_probability_day:
                 result = result + f'Șanse gheață ziua {forecast.ice_probability_day} ({forecast.date})\n'
-            if forecast.ice_probability_day > 0:
+            if forecast.ice_probability_day:
                 result = result + f'Șanse gheață noaptea {forecast.ice_probability_night} ({forecast.date})\n'
 
         return result
