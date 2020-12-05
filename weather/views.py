@@ -290,6 +290,9 @@ def update_settings_day(_, day: str):
     setting_day = setting.day
     setting_day_list: list(str) = setting_day.split(',')
 
+    if '' in setting_day_list:
+        setting_day_list.remove('')
+
     # If setting already contains this day,
     # it must be removed from the list, else it will be added.
     if day not in setting_day_list:
@@ -311,7 +314,7 @@ def update_settings_day(_, day: str):
 def settings(request):
     """View for the 'Settings' page."""
     setting = Settings.objects.all()[0]
-    print(setting.day)
+
     context = {
         'alarm_status': setting.alarm_status,
         'location': setting.location,

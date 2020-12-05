@@ -19,8 +19,11 @@ logger = logging.getLogger(__name__)
 def send_email_task():
     settings = Settings.objects.all()[0]
 
+    settings_day_list = settings.day.split(',')
+    today = DateUtil.get_day_today()
+
     # If alarm is on, try sending alarm in case bad weather ahead.
-    if settings.alarm_status == 'on':
+    if settings.alarm_status == 'on' and today in settings_day_list:
         try:
             today_forecasts: list[Forecast] = Forecast.objects.filter(location=settings.location,
                                                                       date=DateUtil.get_date_today())

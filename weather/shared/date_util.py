@@ -33,3 +33,22 @@ class DateUtil:
     def get_hour_today() -> str:
         """Return string date in 'H' e.g. (06) format."""
         return datetime.now().strftime("%H")
+
+    @staticmethod
+    def get_day_today() -> str:
+        """Return weekday as a decimal number where 0 is monday, etc."""
+        day = datetime.now().strftime("%w")
+        if day == '0':  # Sunday
+            return '6'
+        elif day == '6':  # Saturday
+            return '5'
+        elif day == '1':  # Monday
+            return '0'
+        elif day == '2':  # Tuesday
+            return '1'
+        elif day == '3':  # Wednesday
+            return '2'
+        elif day == '4':  # Thursday
+            return '3'
+        elif day == '5':  # Friday
+            return '4'
