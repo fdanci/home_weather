@@ -22,12 +22,12 @@ class DateUtil:
     @staticmethod
     def get_date_today() -> str:
         """Return string date in 'yyyy-mm-dd' e.g. (2020-11-30) format."""
-        return datetime.now().strftime("%Y-%m-%d").replace('04', '03')
+        return datetime.now().strftime("%Y-%m-%d")
 
     @staticmethod
     def get_date_hour_today() -> str:
         """Return string date in 'yyyy-mm-ddTH' e.g. (2020-11-30T16) format."""
-        return datetime.now().strftime("%Y-%m-%dT%H").replace('04', '03')
+        return datetime.now().strftime("%Y-%m-%dT%H")
 
     @staticmethod
     def get_hour_today() -> str:

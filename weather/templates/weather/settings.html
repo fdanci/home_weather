@@ -69,6 +69,78 @@
         </div>
     </div>
 </div>
+
+<div class="jumbotron border border-secondary" style="background-color:white; border-radius: 0px;">
+
+    <h1 class="display-5">Zile</h1>
+
+    <p class="card-text" style="font-size: 13; color:grey;">
+        Modifică zilele în care Vremea va încerca să trimită alarme. Zilele selectate sunt marcate cu albastru,
+        iar cele in care nu se vor trimite alarme sunt marcate cu gri. Dacă selectati o zi gri, veti începe să primiți
+        alarmă în acea zi, dacă selectați o zi albastră, alarmele vor înceta pentru acea zi.</p>
+
+    <div class="row justify-content-center">
+        <div class="row">
+            <form class="my-auto" action="{% url 'weather:update_settings_location' 'cosna' %}" method="post">
+                {% csrf_token %}
+                <button type="radio" style="width: 85px; border-radius: 0"
+                        class="{% if not location == 'cosna' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">Luni
+                </button>
+            </form>
+            <form class="my-auto" action="{% url 'weather:update_settings_location' 'vatra_dornei' %}" method="post">
+                {% csrf_token %}
+                <button type="radio" style="width: 85px; border-radius: 0"
+                        class="{% if not location == 'vatra_dornei' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">Marți
+                </button>
+            </form>
+            <form class="my-auto" action="{% url 'weather:update_settings_location' 'ilisesti' %}" method="post">
+                {% csrf_token %}
+                <button type="radio" style="width: 85px; border-radius: 0"
+                        class="{% if not location == 'ilisesti' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">Miercuri
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="row">
+            <form class="my-auto" action="{% url 'weather:update_settings_location' 'cosna' %}" method="post">
+                {% csrf_token %}
+                <button type="radio" style="width: 85px; border-radius: 0"
+                        class="{% if not location == 'cosna' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">Joi
+                </button>
+            </form>
+            <form class="my-auto" action="{% url 'weather:update_settings_location' 'vatra_dornei' %}" method="post">
+                {% csrf_token %}
+                <button type="radio" style="width: 85px; border-radius: 0"
+                        class="{% if not location == 'vatra_dornei' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">Vineri
+                </button>
+            </form>
+            <form class="my-auto" action="{% url 'weather:update_settings_location' 'ilisesti' %}" method="post">
+                {% csrf_token %}
+                <button type="radio" style="width: 85px; border-radius: 0"
+                        class="{% if not location == 'ilisesti' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">Sâmbătă
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="row">
+            <form class="my-auto" action="{% url 'weather:update_settings_location' 'cosna' %}" method="post">
+                {% csrf_token %}
+                <button type="radio" style="width: 100px; border-radius: 0"
+                        class="{% if not location == 'cosna' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">Duminică
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
 {% else %}
 <p>{{ error_message }}...</p>
 {% endif %}
