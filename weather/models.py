@@ -21,5 +21,7 @@ class Settings(models.Model):
     day = models.CharField(max_length=20, default='0')
     # The hour at which the beat starts.
     hour = models.CharField(max_length=20, default='5')
-
+    # Email alarm status
     alarm_status = models.CharField(max_length=4, default='off')
+    # Sms alarm status
+    alarm_status_sms = models.CharField(max_length=4, default='off')

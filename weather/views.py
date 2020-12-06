@@ -64,6 +64,7 @@ def index(request):
             "headline": forecast.headline,
             'version': version,
             'alarm_status': Settings.objects.all()[0].alarm_status,
+            'alarm_status_sms': Settings.objects.all()[0].alarm_status_sms,
             'location': location
         }
 
@@ -262,10 +263,32 @@ def update_email_alarm(_, alarm_status: str):
     return redirect('/')
 
 
+def update_sms_alarm(_, alarm_status_sms: str):
+    """View used to update the sms alarm on or off."""
+    setting = Settings.objects.filter(pk=1)[0]
+    setting.alarm_status_sms = alarm_status_sms
+
+    # Save changes made to db.
+    setting.save()
+
+    return redirect('/')
+
+
 def update_settings_email_alarm(_, alarm_status: str):
     """View used to update the email alarm on or off."""
     setting = Settings.objects.filter(pk=1)[0]
     setting.alarm_status = alarm_status
+
+    # Save changes made to db.
+    setting.save()
+
+    return redirect('/settings')
+
+
+def update_settings_sms_alarm(_, alarm_status_sms: str):
+    """View used to update the sms alarm on or off."""
+    setting = Settings.objects.filter(pk=1)[0]
+    setting.alarm_status_sms = alarm_status_sms
 
     # Save changes made to db.
     setting.save()
@@ -317,6 +340,7 @@ def settings(request):
 
     context = {
         'alarm_status': setting.alarm_status,
+        'alarm_status_sms': setting.alarm_status_sms,
         'location': setting.location,
         'hour': setting.hour,
         'day_list': setting.day.split(','),

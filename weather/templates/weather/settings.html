@@ -33,6 +33,25 @@
             </form>
         </div>
     </div>
+    <div class="row justify-content-center" style="margin-left:-42px; margin-top:10px;">
+        <p class="lead my-auto" style="margin-right:25px;">SMS</p>
+        <div class="row">
+            <form class="my-auto" action="{% url 'weather:update_settings_sms_alarm' 'on' %}" method="post">
+                {% csrf_token %}
+                <button data-toggle="tooltip" type="radio" style="width: 65px; border-radius: 0"
+                        class="{% if alarm_status_sms == 'off' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">Da
+                </button>
+            </form>
+            <form class="my-auto" action="{% url 'weather:update_settings_sms_alarm' 'off' %}" method="post">
+                {% csrf_token %}
+                <button type="radio" style="width: 65px; border-radius: 0"
+                        class="{% if not alarm_status_sms == 'off' %}btn btn-secondary{% else %}btn btn-primary{% endif %}"
+                        name="submit">Nu
+                </button>
+            </form>
+        </div>
+    </div>
 </div>
 
 <div class="jumbotron border border-secondary" style="background-color:white; border-radius: 0px;">
