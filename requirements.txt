@@ -19,6 +19,7 @@ idna==2.10
 kombu==5.0.2
 prompt-toolkit==3.0.8
 psycopg2==2.8.6
+PyJWT==1.7.1
 python-decouple==3.3
 pytz==2020.4
 redis==3.5.3
@@ -26,6 +27,7 @@ requests==2.25.0
 six==1.15.0
 soupsieve==2.0.1
 sqlparse==0.4.1
+twilio==6.49.0
 urllib3==1.26.2
 vine==5.0.0
 wcwidth==0.2.5
