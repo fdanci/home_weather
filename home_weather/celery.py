@@ -19,7 +19,7 @@ app.conf.beat_schedule = {
         'task': 'weather.tasks.send_alarm_task',
         'schedule': crontab(
             minute='0',
-            hour='8,16,17,18,19,20',
+            hour='8',
             day_of_week=[0, 1, 2, 3, 4, 5, 6]
         )
     },

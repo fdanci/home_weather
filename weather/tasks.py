@@ -29,7 +29,7 @@ def send_alarm_task():
     location = settings.location
 
     # If any alarm on, try sending alarm in case bad weather ahead.
-    if (is_email_alarm or is_sms_alarm) and DateUtil.get_day_today() in settings_day_list:
+    if is_email_alarm or is_sms_alarm and DateUtil.get_day_today() in settings_day_list:
         try:
             forecast_5days = Forecast.read_forecast(location)
         except Exception as err:
