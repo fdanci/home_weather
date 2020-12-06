@@ -11,8 +11,8 @@
     {% endif %}
     <p class="lead">Maxima și minima în următoarele {{ forecast_length }} zile în <b>{{ location }}</b></p>
     <div class="row mx-auto">
-        <div class="col">
-            <div class="card mx-auto" style="max-width:16rem; background-color:white;">
+        <div class="col-12 col-sm-6">
+            <div class="card mx-auto" style="max-width:20rem; background-color:white;">
                 <h5 class="card-header" style="background-color:Tomato; color:white;">Maximă</h5>
                 <div class="card-body">
                     <h5 class="card-title">{{ max_temperature_date }}</h5>
@@ -20,8 +20,8 @@
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card mx-auto" style="max-width:16rem; background-color:white;">
+        <div class="col-12 col-sm-6">
+            <div class="card mx-auto" style="max-width:20rem; background-color:white;">
                 <h5 class="card-header" style="background-color:DodgerBlue; color:white;">Minimă</h5>
                 <div class="card-body">
                     <h5 class="card-title">{{ min_temperature_date }}</h5>
