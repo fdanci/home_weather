@@ -16,15 +16,15 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 
 app.conf.beat_schedule = {
     'send-every-day': {
-        'task': 'weather.tasks.send_email_task',
+        'task': 'weather.tasks.send_alarm_task',
         'schedule': crontab(
             minute='0',
-            hour='8',
+            hour='8,16,17,18,19,20',
             day_of_week=[0, 1, 2, 3, 4, 5, 6]
         )
     },
     'every-29-minutes': {
-        'task': 'weather.tasks.wake_up',
+        'task': 'weather.tasks.wake_up_task',
         'schedule': crontab(minute='*/29')
     },
 }

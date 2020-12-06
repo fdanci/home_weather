@@ -4,11 +4,12 @@ from django.core.mail import send_mail
 
 import requests
 
-from .models import Settings, Forecast
+from .models import Settings
 from .shared.date_util import DateUtil
-from .shared.forecast_5days import Forecast5days
 
 import logging
+
+from .shared.forecast import Forecast
 
 logger = logging.getLogger(__name__)
 
@@ -19,37 +20,24 @@ client = Client(config('ACCOUNT_SID_TWILIO'), config('AUTH_TOKEN_TWILIO'))
 
 
 @shared_task
-def send_email_task():
+def send_alarm_task():
     settings = Settings.objects.all()[0]
-
+    # Store app settings, read from database, into variables.
     settings_day_list = settings.day.split(',')
-    today = DateUtil.get_day_today()
-
     is_email_alarm = settings.alarm_status == 'on'
     is_sms_alarm = settings.alarm_status_sms == 'on'
+    location = settings.location
 
     # If any alarm on, try sending alarm in case bad weather ahead.
-    if (is_email_alarm or is_sms_alarm) and today in settings_day_list:
+    if (is_email_alarm or is_sms_alarm) and DateUtil.get_day_today() in settings_day_list:
         try:
-            today_forecasts: list[Forecast] = Forecast.objects.filter(location=settings.location,
-                                                                      date=DateUtil.get_date_today())
-            # If forecast data exists, create 'Forecast' object from it.
-            if today_forecasts:
-                today_forecast = today_forecasts[0]
-                forecast: Forecast5days = Forecast5days(settings.location, raw_data=today_forecast.forecast)
-            else:  # Else request the API for data.
-                forecast: Forecast5days = Forecast5days(settings.location)
+            forecast_5days = Forecast.read_forecast(location)
         except Exception as err:
-            logger.error('tasks.send_email_task')
+            logger.error('send_alarm_task')
             logger.error(err)
         else:
-            if forecast.has_precipitations():
-                message = f"{forecast.headline}\n" \
-                          f"Minimă: {forecast.min_temperature[0]} \N{DEGREE SIGN}C ({forecast.min_temperature[1]})\n" \
-                          f"Maximă: {forecast.max_temperature[0]} \N{DEGREE SIGN}C ({forecast.max_temperature[1]})\n\n" \
-                          f"{forecast.days_that_rain()}"
-
-                # Send alarms to target.
+            if forecast_5days.has_precipitations():  # If bad weather, send alarms.
+                message = forecast_5days.get_message()
                 if is_email_alarm:
                     send_email_alarm(message)
                 if is_sms_alarm:
@@ -73,6 +61,10 @@ def send_sms_alarm(message: str):
 
 
 @shared_task
-def wake_up():
+def wake_up_task():
     """Keep app awake all the time."""
-    requests.request("GET", config('BLANK_URL'))
+    try:
+        requests.request("GET", config('BLANK_URL'))
+    except Exception as err:
+        logger.error('wake_up_task')
+        logger.error(err)

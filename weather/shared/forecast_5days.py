@@ -161,16 +161,23 @@ class Forecast5days:
         for forecast in self.__forecast_list[0:4]:
             if forecast.has_precipitations_day or forecast.has_precipitations_night:
                 return True
-            if forecast.thunderstorm_probability_day  or forecast.thunderstorm_probability_night:
+            if forecast.thunderstorm_probability_day or forecast.thunderstorm_probability_night:
                 return True
-            if forecast.snow_probability_day  or forecast.snow_probability_night:
+            if forecast.snow_probability_day or forecast.snow_probability_night:
                 return True
             if forecast.ice_probability_day or forecast.ice_probability_night:
                 return True
         return False
 
-    def days_that_rain(self) -> str:
-        """Returns str info about bad weather days."""
+    def get_message(self) -> str:
+        """Return formatted message with most import forecast data."""
+        message = f"{self.__headline}\n" \
+                  f"Minimă: {self.__min_temperature[0]} \N{DEGREE SIGN}C ({self.__min_temperature[1]})\n" \
+                  f"Maximă: {self.__max_temperature[0]} \N{DEGREE SIGN}C ({self.__max_temperature[1]})\n\n" \
+                  f"{self.__get_days_that_rain()}"
+        return message
+
+    def __get_days_that_rain_message(self) -> str:
         result = ''
         for forecast in self.__forecast_list[0:4]:
             result = result + f'Dată {forecast.date}\n'
@@ -191,5 +198,4 @@ class Forecast5days:
             if forecast.ice_probability_day:
                 result = result + f'Gheață noaptea {forecast.ice_probability_night}% ({forecast.date})\n'
             result = result + '\n'
-
         return result

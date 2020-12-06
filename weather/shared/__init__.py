@@ -1,1 +1,1 @@
-__all__ = ["date_util", "forecast_12hours", "forecast_5days", "forecast_hour", "forecast_day"]
+__all__ = ["date_util", "forecast_12hours", "forecast_5days", "forecast_hour", "forecast_day", "str_util"]
