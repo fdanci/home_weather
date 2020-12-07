@@ -174,7 +174,7 @@ class Forecast5days:
         message = f"{self.__headline}\n" \
                   f"Minimă: {self.__min_temperature[0]} \N{DEGREE SIGN}C ({self.__min_temperature[1]})\n" \
                   f"Maximă: {self.__max_temperature[0]} \N{DEGREE SIGN}C ({self.__max_temperature[1]})\n\n" \
-                  f"{self.__get_days_that_rain()}"
+                  f"{self.__get_days_that_rain_message()}"
         return message
 
     def __get_days_that_rain_message(self) -> str:
