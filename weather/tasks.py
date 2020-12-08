@@ -1,5 +1,8 @@
 from celery import shared_task
 
+from decouple import config
+from twilio.rest import Client
+
 from django.core.mail import send_mail
 
 import requests
@@ -12,9 +15,6 @@ import logging
 from .shared.forecast import Forecast
 
 logger = logging.getLogger(__name__)
-
-from decouple import config
-from twilio.rest import Client
 
 client = Client(config('ACCOUNT_SID_TWILIO'), config('AUTH_TOKEN_TWILIO'))
 
@@ -30,27 +30,35 @@ def send_alarm_task():
 
     # If any alarm on, try sending alarm in case bad weather ahead.
     if is_email_alarm or is_sms_alarm and DateUtil.get_day_today() in settings_day_list:
+        logger.info('Trying to send alarm...')
         try:
-            forecast_5days = Forecast.read_forecast(location)
+            forecast_5days = Forecast.get_forecast_5days(location)
         except Exception as err:
             logger.error('send_alarm_task')
             logger.error(err)
         else:
             if forecast_5days.has_precipitations():  # If bad weather, send alarms.
                 message = forecast_5days.get_message()
+
                 if is_email_alarm:
+                    logger.info('Trying to send email...')
                     send_email_alarm(message)
                 if is_sms_alarm:
+                    logger.info('Trying to send sms...')
                     send_sms_alarm(message)
+                logger.info('Alarm sent.')
+            else:
+                logger.info('Alarm not sent, weather looks good')
     return None
 
 
 def send_email_alarm(message: str):
     """Send email notification."""
-    send_mail('Vreme rea de polog',
+    send_mail('Vreme rea',
               message,
               config('EMAIL'),
               ['florin.danci96@gmail.com'])
+    logger.info('Email sent.')
 
 
 def send_sms_alarm(message: str):
@@ -58,6 +66,7 @@ def send_sms_alarm(message: str):
     client.messages.create(to=config('TARGET_PHONE_1'),
                            from_="+14434874065",
                            body=message)
+    logger.info('Sms sent.')
 
 
 @shared_task

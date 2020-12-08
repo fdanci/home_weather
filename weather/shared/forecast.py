@@ -3,6 +3,10 @@ from weather.shared.forecast_12hours import Forecast12hours
 from weather.shared.forecast_5days import Forecast5days
 from weather.models import Forecast as Forecast_DB
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 class Forecast:
     """Class used to read from database or from api and write information to database, information about forecasts."""
@@ -12,7 +16,7 @@ class Forecast:
         """
         Read forecast from db if available, or request from api otherwise and write to db.
         """
-
+        logger.info('Getting forecast 5 days...')
         # Retrieve the forecast for today from database, if it exists.
         today_forecasts: Forecast_DB = Forecast_DB.objects.filter(location=location, date=DateUtil.get_date_today())
 
@@ -30,7 +34,7 @@ class Forecast:
                 location=location
             )
             today_forecast.save()
-
+        logger.info('Forecast 5 days gotten.')
         return forecast
 
     @staticmethod
@@ -38,7 +42,7 @@ class Forecast:
         """
         Read forecast for 12 hours from db if available, or request from api otherwise and write to db.
         """
-
+        logger.info('Getting forecast 12 hours...')
         # Retrieve the forecast for next 12 hours from database, if it exists.
         current_hour_forecasts: Forecast_DB = Forecast_DB.objects.filter(location=location,
                                                                          date=DateUtil.get_date_hour_today())
@@ -57,5 +61,5 @@ class Forecast:
                 location=location
             )
             current_hour_forecast.save()
-
+        logger.info('Forecast 12 hours gotten.')
         return forecast_12hours
