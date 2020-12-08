@@ -1,0 +1,1194 @@
+{
+  "Headline": {
+    "EffectiveDate": "2020-12-10T01:00:00+02:00",
+    "EffectiveEpochDate": 1607554800,
+    "Severity": 3,
+    "Text": "1-3 cm de zăpadă, ninsoare combinată cu ploaie pe alocuri, miercuri noaptea târziu până joi dimineaţa",
+    "Category": "snow/rain",
+    "EndDate": "2020-12-10T13:00:00+02:00",
+    "EndEpochDate": 1607598000,
+    "MobileLink": "http://m.accuweather.com/ro/ro/cosna/280811/extended-weather-forecast/280811?unit=c",
+    "Link": "http://www.accuweather.com/ro/ro/cosna/280811/daily-weather-forecast/280811?unit=c"
+  },
+  "DailyForecasts": [
+    {
+      "Date": "2020-12-08T07:00:00+02:00",
+      "EpochDate": 1607403600,
+      "Sun": {
+        "Rise": "2020-12-08T07:54:00+02:00",
+        "EpochRise": 1607406840,
+        "Set": "2020-12-08T16:29:00+02:00",
+        "EpochSet": 1607437740
+      },
+      "Moon": {
+        "Rise": null,
+        "EpochRise": null,
+        "Set": "2020-12-08T13:23:00+02:00",
+        "EpochSet": 1607426580,
+        "Phase": "Last",
+        "Age": 23
+      },
+      "Temperature": {
+        "Minimum": {
+          "Value": -2.6,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 0.4,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "RealFeelTemperature": {
+        "Minimum": {
+          "Value": -2.1,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 0.9,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "RealFeelTemperatureShade": {
+        "Minimum": {
+          "Value": -2.1,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 0.9,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "HoursOfSun": 0.9,
+      "DegreeDaySummary": {
+        "Heating": {
+          "Value": 19.0,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Cooling": {
+          "Value": 0.0,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "AirAndPollen": [
+        {
+          "Name": "AirQuality",
+          "Value": 26,
+          "Category": "Bun",
+          "CategoryValue": 1,
+          "Type": "Ozon"
+        },
+        {
+          "Name": "Grass",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "Mold",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "Ragweed",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "Tree",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "UVIndex",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        }
+      ],
+      "Day": {
+        "Icon": 19,
+        "IconPhrase": "Fulguieli",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Snow",
+        "PrecipitationIntensity": "Light",
+        "ShortPhrase": "Puţină ninsoare sau fulguieli",
+        "LongPhrase": "Puţină ninsoare sau fulguieli",
+        "PrecipitationProbability": 69,
+        "ThunderstormProbability": 0,
+        "RainProbability": 1,
+        "SnowProbability": 69,
+        "IceProbability": 0,
+        "Wind": {
+          "Speed": {
+            "Value": 3.7,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 88,
+            "Localized": "E",
+            "English": "E"
+          }
+        },
+        "WindGust": {
+          "Speed": {
+            "Value": 14.8,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 103,
+            "Localized": "ESE",
+            "English": "ESE"
+          }
+        },
+        "TotalLiquid": {
+          "Value": 1.3,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Rain": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Snow": {
+          "Value": 1.88,
+          "Unit": "cm",
+          "UnitType": 4
+        },
+        "Ice": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "HoursOfPrecipitation": 4.0,
+        "HoursOfRain": 0.0,
+        "HoursOfSnow": 4.0,
+        "HoursOfIce": 0.0,
+        "CloudCover": 95
+      },
+      "Night": {
+        "Icon": 7,
+        "IconPhrase": "Noros",
+        "HasPrecipitation": false,
+        "ShortPhrase": "Noros",
+        "LongPhrase": "Noros",
+        "PrecipitationProbability": 25,
+        "ThunderstormProbability": 0,
+        "RainProbability": 0,
+        "SnowProbability": 25,
+        "IceProbability": 0,
+        "Wind": {
+          "Speed": {
+            "Value": 5.6,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 105,
+            "Localized": "ESE",
+            "English": "ESE"
+          }
+        },
+        "WindGust": {
+          "Speed": {
+            "Value": 7.4,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 110,
+            "Localized": "ESE",
+            "English": "ESE"
+          }
+        },
+        "TotalLiquid": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Rain": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Snow": {
+          "Value": 0.0,
+          "Unit": "cm",
+          "UnitType": 4
+        },
+        "Ice": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "HoursOfPrecipitation": 0.0,
+        "HoursOfRain": 0.0,
+        "HoursOfSnow": 0.0,
+        "HoursOfIce": 0.0,
+        "CloudCover": 96
+      },
+      "Sources": [
+        "AccuWeather"
+      ],
+      "MobileLink": "http://m.accuweather.com/ro/ro/cosna/280811/daily-weather-forecast/280811?day=1&unit=c",
+      "Link": "http://www.accuweather.com/ro/ro/cosna/280811/daily-weather-forecast/280811?day=1&unit=c"
+    },
+    {
+      "Date": "2020-12-09T07:00:00+02:00",
+      "EpochDate": 1607490000,
+      "Sun": {
+        "Rise": "2020-12-09T07:55:00+02:00",
+        "EpochRise": 1607493300,
+        "Set": "2020-12-09T16:29:00+02:00",
+        "EpochSet": 1607524140
+      },
+      "Moon": {
+        "Rise": "2020-12-09T00:51:00+02:00",
+        "EpochRise": 1607467860,
+        "Set": "2020-12-09T13:46:00+02:00",
+        "EpochSet": 1607514360,
+        "Phase": "WaningCrescent",
+        "Age": 24
+      },
+      "Temperature": {
+        "Minimum": {
+          "Value": -1.9,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 3.9,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "RealFeelTemperature": {
+        "Minimum": {
+          "Value": -2.4,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 5.8,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "RealFeelTemperatureShade": {
+        "Minimum": {
+          "Value": -2.4,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 4.1,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "HoursOfSun": 4.2,
+      "DegreeDaySummary": {
+        "Heating": {
+          "Value": 17.0,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Cooling": {
+          "Value": 0.0,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "AirAndPollen": [
+        {
+          "Name": "AirQuality",
+          "Value": 30,
+          "Category": "Bun",
+          "CategoryValue": 1,
+          "Type": "Ozon"
+        },
+        {
+          "Name": "Grass",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "Mold",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "Ragweed",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "Tree",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "UVIndex",
+          "Value": 2,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        }
+      ],
+      "Day": {
+        "Icon": 4,
+        "IconPhrase": "Nori sporadici",
+        "HasPrecipitation": false,
+        "ShortPhrase": "Nori şi soare",
+        "LongPhrase": "Nori şi soare",
+        "PrecipitationProbability": 22,
+        "ThunderstormProbability": 0,
+        "RainProbability": 9,
+        "SnowProbability": 14,
+        "IceProbability": 0,
+        "Wind": {
+          "Speed": {
+            "Value": 7.4,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 83,
+            "Localized": "E",
+            "English": "E"
+          }
+        },
+        "WindGust": {
+          "Speed": {
+            "Value": 9.3,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 73,
+            "Localized": "ENE",
+            "English": "ENE"
+          }
+        },
+        "TotalLiquid": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Rain": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Snow": {
+          "Value": 0.0,
+          "Unit": "cm",
+          "UnitType": 4
+        },
+        "Ice": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "HoursOfPrecipitation": 0.0,
+        "HoursOfRain": 0.0,
+        "HoursOfSnow": 0.0,
+        "HoursOfIce": 0.0,
+        "CloudCover": 65
+      },
+      "Night": {
+        "Icon": 22,
+        "IconPhrase": "Ninsoare",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Snow",
+        "PrecipitationIntensity": "Moderate",
+        "ShortPhrase": "Ninsoare ocazională şi fulguieli",
+        "LongPhrase": "Ninsoare ocazională şi fulguieli",
+        "PrecipitationProbability": 83,
+        "ThunderstormProbability": 5,
+        "RainProbability": 5,
+        "SnowProbability": 83,
+        "IceProbability": 2,
+        "Wind": {
+          "Speed": {
+            "Value": 7.4,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 76,
+            "Localized": "ENE",
+            "English": "ENE"
+          }
+        },
+        "WindGust": {
+          "Speed": {
+            "Value": 9.3,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 87,
+            "Localized": "E",
+            "English": "E"
+          }
+        },
+        "TotalLiquid": {
+          "Value": 2.3,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Rain": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Snow": {
+          "Value": 2.24,
+          "Unit": "cm",
+          "UnitType": 4
+        },
+        "Ice": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "HoursOfPrecipitation": 4.0,
+        "HoursOfRain": 0.0,
+        "HoursOfSnow": 4.0,
+        "HoursOfIce": 0.0,
+        "CloudCover": 99
+      },
+      "Sources": [
+        "AccuWeather"
+      ],
+      "MobileLink": "http://m.accuweather.com/ro/ro/cosna/280811/daily-weather-forecast/280811?day=2&unit=c",
+      "Link": "http://www.accuweather.com/ro/ro/cosna/280811/daily-weather-forecast/280811?day=2&unit=c"
+    },
+    {
+      "Date": "2020-12-10T07:00:00+02:00",
+      "EpochDate": 1607576400,
+      "Sun": {
+        "Rise": "2020-12-10T07:56:00+02:00",
+        "EpochRise": 1607579760,
+        "Set": "2020-12-10T16:29:00+02:00",
+        "EpochSet": 1607610540
+      },
+      "Moon": {
+        "Rise": "2020-12-10T02:08:00+02:00",
+        "EpochRise": 1607558880,
+        "Set": "2020-12-10T14:08:00+02:00",
+        "EpochSet": 1607602080,
+        "Phase": "WaningCrescent",
+        "Age": 25
+      },
+      "Temperature": {
+        "Minimum": {
+          "Value": 1.1,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 5.6,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "RealFeelTemperature": {
+        "Minimum": {
+          "Value": 1.2,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 7.1,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "RealFeelTemperatureShade": {
+        "Minimum": {
+          "Value": 1.2,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 7.1,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "HoursOfSun": 1.0,
+      "DegreeDaySummary": {
+        "Heating": {
+          "Value": 15.0,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Cooling": {
+          "Value": 0.0,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "AirAndPollen": [
+        {
+          "Name": "AirQuality",
+          "Value": 29,
+          "Category": "Bun",
+          "CategoryValue": 1,
+          "Type": "Ozon"
+        },
+        {
+          "Name": "Grass",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "Mold",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "Ragweed",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "Tree",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "UVIndex",
+          "Value": 1,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        }
+      ],
+      "Day": {
+        "Icon": 29,
+        "IconPhrase": "Ploaie şi zăpadă",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Mixed",
+        "PrecipitationIntensity": "Light",
+        "ShortPhrase": "Puţină ninsoare şi ploaie",
+        "LongPhrase": "Puţină ninsoare şi ploaie",
+        "PrecipitationProbability": 57,
+        "ThunderstormProbability": 0,
+        "RainProbability": 56,
+        "SnowProbability": 45,
+        "IceProbability": 1,
+        "Wind": {
+          "Speed": {
+            "Value": 3.7,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 166,
+            "Localized": "SSE",
+            "English": "SSE"
+          }
+        },
+        "WindGust": {
+          "Speed": {
+            "Value": 7.4,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 77,
+            "Localized": "ENE",
+            "English": "ENE"
+          }
+        },
+        "TotalLiquid": {
+          "Value": 1.6,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Rain": {
+          "Value": 1.5,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Snow": {
+          "Value": 0.08,
+          "Unit": "cm",
+          "UnitType": 4
+        },
+        "Ice": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "HoursOfPrecipitation": 1.5,
+        "HoursOfRain": 1.0,
+        "HoursOfSnow": 1.0,
+        "HoursOfIce": 0.0,
+        "CloudCover": 94
+      },
+      "Night": {
+        "Icon": 19,
+        "IconPhrase": "Fulguieli",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Snow",
+        "PrecipitationIntensity": "Light",
+        "ShortPhrase": "Ninsoare sporadică",
+        "LongPhrase": "Ninsoare sporadică",
+        "PrecipitationProbability": 54,
+        "ThunderstormProbability": 0,
+        "RainProbability": 40,
+        "SnowProbability": 49,
+        "IceProbability": 0,
+        "Wind": {
+          "Speed": {
+            "Value": 5.6,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 80,
+            "Localized": "E",
+            "English": "E"
+          }
+        },
+        "WindGust": {
+          "Speed": {
+            "Value": 7.4,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 80,
+            "Localized": "E",
+            "English": "E"
+          }
+        },
+        "TotalLiquid": {
+          "Value": 0.2,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Rain": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Snow": {
+          "Value": 0.13,
+          "Unit": "cm",
+          "UnitType": 4
+        },
+        "Ice": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "HoursOfPrecipitation": 1.0,
+        "HoursOfRain": 0.0,
+        "HoursOfSnow": 1.0,
+        "HoursOfIce": 0.0,
+        "CloudCover": 99
+      },
+      "Sources": [
+        "AccuWeather"
+      ],
+      "MobileLink": "http://m.accuweather.com/ro/ro/cosna/280811/daily-weather-forecast/280811?day=3&unit=c",
+      "Link": "http://www.accuweather.com/ro/ro/cosna/280811/daily-weather-forecast/280811?day=3&unit=c"
+    },
+    {
+      "Date": "2020-12-11T07:00:00+02:00",
+      "EpochDate": 1607662800,
+      "Sun": {
+        "Rise": "2020-12-11T07:57:00+02:00",
+        "EpochRise": 1607666220,
+        "Set": "2020-12-11T16:29:00+02:00",
+        "EpochSet": 1607696940
+      },
+      "Moon": {
+        "Rise": "2020-12-11T03:29:00+02:00",
+        "EpochRise": 1607650140,
+        "Set": "2020-12-11T14:32:00+02:00",
+        "EpochSet": 1607689920,
+        "Phase": "WaningCrescent",
+        "Age": 26
+      },
+      "Temperature": {
+        "Minimum": {
+          "Value": 0.3,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 3.7,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "RealFeelTemperature": {
+        "Minimum": {
+          "Value": 1.1,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 3.8,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "RealFeelTemperatureShade": {
+        "Minimum": {
+          "Value": 1.1,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 3.8,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "HoursOfSun": 1.0,
+      "DegreeDaySummary": {
+        "Heating": {
+          "Value": 16.0,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Cooling": {
+          "Value": 0.0,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "AirAndPollen": [
+        {
+          "Name": "AirQuality",
+          "Value": 28,
+          "Category": "Bun",
+          "CategoryValue": 1,
+          "Type": "Ozon"
+        },
+        {
+          "Name": "Grass",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "Mold",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "Ragweed",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "Tree",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "UVIndex",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        }
+      ],
+      "Day": {
+        "Icon": 18,
+        "IconPhrase": "Ploaie",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light",
+        "ShortPhrase": "Perioade de ploaie",
+        "LongPhrase": "Perioade de ploaie",
+        "PrecipitationProbability": 65,
+        "ThunderstormProbability": 0,
+        "RainProbability": 65,
+        "SnowProbability": 4,
+        "IceProbability": 0,
+        "Wind": {
+          "Speed": {
+            "Value": 5.6,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 94,
+            "Localized": "E",
+            "English": "E"
+          }
+        },
+        "WindGust": {
+          "Speed": {
+            "Value": 9.3,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 58,
+            "Localized": "ENE",
+            "English": "ENE"
+          }
+        },
+        "TotalLiquid": {
+          "Value": 5.8,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Rain": {
+          "Value": 5.8,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Snow": {
+          "Value": 0.0,
+          "Unit": "cm",
+          "UnitType": 4
+        },
+        "Ice": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "HoursOfPrecipitation": 3.5,
+        "HoursOfRain": 3.5,
+        "HoursOfSnow": 0.0,
+        "HoursOfIce": 0.0,
+        "CloudCover": 94
+      },
+      "Night": {
+        "Icon": 12,
+        "IconPhrase": "Averse de ploaie",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light",
+        "ShortPhrase": "Una sau două averse scurte",
+        "LongPhrase": "Una sau două averse scurte",
+        "PrecipitationProbability": 62,
+        "ThunderstormProbability": 20,
+        "RainProbability": 62,
+        "SnowProbability": 24,
+        "IceProbability": 0,
+        "Wind": {
+          "Speed": {
+            "Value": 3.7,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 152,
+            "Localized": "SSE",
+            "English": "SSE"
+          }
+        },
+        "WindGust": {
+          "Speed": {
+            "Value": 7.4,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 197,
+            "Localized": "SSV",
+            "English": "SSW"
+          }
+        },
+        "TotalLiquid": {
+          "Value": 2.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Rain": {
+          "Value": 2.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Snow": {
+          "Value": 0.0,
+          "Unit": "cm",
+          "UnitType": 4
+        },
+        "Ice": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "HoursOfPrecipitation": 1.0,
+        "HoursOfRain": 1.0,
+        "HoursOfSnow": 0.0,
+        "HoursOfIce": 0.0,
+        "CloudCover": 99
+      },
+      "Sources": [
+        "AccuWeather"
+      ],
+      "MobileLink": "http://m.accuweather.com/ro/ro/cosna/280811/daily-weather-forecast/280811?day=4&unit=c",
+      "Link": "http://www.accuweather.com/ro/ro/cosna/280811/daily-weather-forecast/280811?day=4&unit=c"
+    },
+    {
+      "Date": "2020-12-12T07:00:00+02:00",
+      "EpochDate": 1607749200,
+      "Sun": {
+        "Rise": "2020-12-12T07:58:00+02:00",
+        "EpochRise": 1607752680,
+        "Set": "2020-12-12T16:29:00+02:00",
+        "EpochSet": 1607783340
+      },
+      "Moon": {
+        "Rise": "2020-12-12T04:50:00+02:00",
+        "EpochRise": 1607741400,
+        "Set": "2020-12-12T15:00:00+02:00",
+        "EpochSet": 1607778000,
+        "Phase": "WaningCrescent",
+        "Age": 27
+      },
+      "Temperature": {
+        "Minimum": {
+          "Value": 1.2,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 4.2,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "RealFeelTemperature": {
+        "Minimum": {
+          "Value": 0.6,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 5.0,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "RealFeelTemperatureShade": {
+        "Minimum": {
+          "Value": 0.6,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 5.0,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "HoursOfSun": 1.4,
+      "DegreeDaySummary": {
+        "Heating": {
+          "Value": 15.0,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Cooling": {
+          "Value": 0.0,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "AirAndPollen": [
+        {
+          "Name": "AirQuality",
+          "Value": 16,
+          "Category": "Bun",
+          "CategoryValue": 1,
+          "Type": "Ozon"
+        },
+        {
+          "Name": "Grass",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "Mold",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "Ragweed",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "Tree",
+          "Value": 0,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        },
+        {
+          "Name": "UVIndex",
+          "Value": 1,
+          "Category": "Scăzut",
+          "CategoryValue": 1
+        }
+      ],
+      "Day": {
+        "Icon": 6,
+        "IconPhrase": "Predominant noros",
+        "HasPrecipitation": false,
+        "ShortPhrase": "Nebulozitate variabilă",
+        "LongPhrase": "Nebulozitate variabilă",
+        "PrecipitationProbability": 25,
+        "ThunderstormProbability": 0,
+        "RainProbability": 20,
+        "SnowProbability": 7,
+        "IceProbability": 0,
+        "Wind": {
+          "Speed": {
+            "Value": 5.6,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 56,
+            "Localized": "NE",
+            "English": "NE"
+          }
+        },
+        "WindGust": {
+          "Speed": {
+            "Value": 9.3,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 73,
+            "Localized": "ENE",
+            "English": "ENE"
+          }
+        },
+        "TotalLiquid": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Rain": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Snow": {
+          "Value": 0.0,
+          "Unit": "cm",
+          "UnitType": 4
+        },
+        "Ice": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "HoursOfPrecipitation": 0.0,
+        "HoursOfRain": 0.0,
+        "HoursOfSnow": 0.0,
+        "HoursOfIce": 0.0,
+        "CloudCover": 89
+      },
+      "Night": {
+        "Icon": 18,
+        "IconPhrase": "Ploaie",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light",
+        "ShortPhrase": "Ploaie şi burniţă",
+        "LongPhrase": "Ploaie şi burniţă",
+        "PrecipitationProbability": 61,
+        "ThunderstormProbability": 0,
+        "RainProbability": 61,
+        "SnowProbability": 22,
+        "IceProbability": 0,
+        "Wind": {
+          "Speed": {
+            "Value": 5.6,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 81,
+            "Localized": "E",
+            "English": "E"
+          }
+        },
+        "WindGust": {
+          "Speed": {
+            "Value": 9.3,
+            "Unit": "km/h",
+            "UnitType": 7
+          },
+          "Direction": {
+            "Degrees": 73,
+            "Localized": "ENE",
+            "English": "ENE"
+          }
+        },
+        "TotalLiquid": {
+          "Value": 2.7,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Rain": {
+          "Value": 2.7,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "Snow": {
+          "Value": 0.0,
+          "Unit": "cm",
+          "UnitType": 4
+        },
+        "Ice": {
+          "Value": 0.0,
+          "Unit": "mm",
+          "UnitType": 3
+        },
+        "HoursOfPrecipitation": 4.5,
+        "HoursOfRain": 4.5,
+        "HoursOfSnow": 0.0,
+        "HoursOfIce": 0.0,
+        "CloudCover": 99
+      },
+      "Sources": [
+        "AccuWeather"
+      ],
+      "MobileLink": "http://m.accuweather.com/ro/ro/cosna/280811/daily-weather-forecast/280811?day=5&unit=c",
+      "Link": "http://www.accuweather.com/ro/ro/cosna/280811/daily-weather-forecast/280811?day=5&unit=c"
+    }
+  ]
+}

@@ -18,7 +18,6 @@ app.conf.beat_schedule = {
     'send-every-day': {
         'task': 'weather.tasks.send_alarm_task',
         'schedule': crontab(
-            minute='0',
             hour='8',
             day_of_week=range(0, 7)
         )

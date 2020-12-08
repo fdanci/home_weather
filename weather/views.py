@@ -19,7 +19,7 @@ def index(request):
         logger.error(err)
         context = {
             "error_message": err,
-            'version': '2.1'
+            'version': '2.2'
         }
     else:  # In case no errors occurred, create context for template.
         context = {
@@ -31,7 +31,7 @@ def index(request):
             "forecast_length": len(forecast_5days.forecast_list),
             "has_precipitations": forecast_5days.has_precipitations(),
             "headline": forecast_5days.headline,
-            'version': '2.1',
+            'version': '2.2',
             'alarm_status': Settings.objects.all()[0].alarm_status,
             'alarm_status_sms': Settings.objects.all()[0].alarm_status_sms,
             'location': StrUtil.format_location(Settings.objects.all()[0].location)
